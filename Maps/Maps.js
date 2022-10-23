@@ -1,0 +1,3 @@
+window.OverworldMaps = {
+    "CvMap": CvMap,
+}
