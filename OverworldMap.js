@@ -60,8 +60,8 @@ class OverworldMap {
       if (object.type === "Person") {
         instance = new Person(object);
       }
-      if (object.type === "PizzaStone") {
-        instance = new PizzaStone(object);
+      if (object.type === "CraftingStone") {
+        instance = new CraftingStone(object);
       }
       this.gameObjects[key] = instance;
       this.gameObjects[key].id = key;
