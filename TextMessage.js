@@ -1,7 +1,8 @@
 class TextMessage {
-    constructor({text, onComplete}) {
+    constructor({text, onComplete, who}) {
         this.text = text;
         this.onComplete = onComplete;
+        this.who = who;
         this.element = null;
     }
 
@@ -18,7 +19,7 @@ class TextMessage {
         //Initialiser l'effet machine à écrire
         this.revealingText = new RevealingText({
             element: this.element.querySelector(".TextMessage_p"),
-            text: this.text,
+            text: this.who + ": "+ this.text,
         })
 
         this.element.querySelector("button").addEventListener("click", () => {

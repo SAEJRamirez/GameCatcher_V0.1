@@ -63,23 +63,23 @@ const CvMap = {
         },
         npcC_School: {
             type: "Person",
-                x:utils.withGrid(23),
-                y:utils.withGrid(33),
-                src: "/images/personnages/personnes/erio.png",
-                behaviorLoop: [
-                { type: "stand", direction: "left", time: 2200},
-                { type: "stand", direction: "up", time: 1800},
-                { type: "stand", direction: "right", time: 800},
-                { type: "stand", direction: "up", time: 1200},
-            ],
-                talking: [
-                {
-                    events: [
-                        { type: "textMessage", text: "Hey mec... Tu veux une calculette ?", faceHero: "npcC_School" },
-                        { type: "textMessage", text: "Tombée du camion, je te la fais un bon prix...", faceHero: "npcC_School" },
-                    ]
-                }
-            ]
+            x:utils.withGrid(23),
+            y:utils.withGrid(33),
+            src: "/images/personnages/personnes/erio.png",
+            behaviorLoop: [
+            { type: "stand", direction: "left", time: 2200},
+            { type: "stand", direction: "up", time: 1800},
+            { type: "stand", direction: "right", time: 800},
+            { type: "stand", direction: "up", time: 1200},
+        ],
+            talking: [
+            {
+                events: [
+                    { type: "textMessage", text: "Hey mec... Tu veux une calculette ?", faceHero: "npcC_School", who: "Erio" },
+                    { type: "textMessage", text: "Tombée du camion, je te la fais un bon prix...", faceHero: "npcC_School", who: "Erio" },
+                ]
+            }
+        ]
         }
     },
     walls: {
