@@ -26,9 +26,6 @@ class GameObject {
     }, 10)
   }
 
-  update() {
-  }
-
   async doBehaviorEvent(map) { 
 
     //Don't do anything if I don't have config to do anything
@@ -65,9 +62,7 @@ class GameObject {
 
     //Do it again!
     this.doBehaviorEvent(map);
-    
 
   }
-
 
 }
