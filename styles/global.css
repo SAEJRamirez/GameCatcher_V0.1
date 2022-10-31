@@ -22,8 +22,8 @@ body {
 
 .game-container {
     position: relative;
-    width: 352px;
-    height: 198px;
+    width: 352px; /*352px*/
+    height: 198px; /* 198px*/
     margin: 0 auto;
     outline: 1px solid #fff;
 
