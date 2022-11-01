@@ -31,17 +31,9 @@ const DemoRoom = {
                 ]
             }
         ],
-        [utils.asGridCoord(7,7)]: [
-            {
-                events: [
-                    {type: "addStoryFlag", flag: "INTRO"},
-                    { who: "npcA", type: "walk", direction: "down"},
-                    { who: "npcA", type: "walk", direction: "down"},
-                    { who: "npcA", type: "walk", direction: "down"}
-                ],
-            }
-        ]
+
     },
+
     walls: {
         //Upper walls with door
         [utils.asGridCoord(1, 3)] : true,

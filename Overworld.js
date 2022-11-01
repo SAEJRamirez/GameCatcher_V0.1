@@ -84,17 +84,9 @@ class Overworld {
   this.progress.startingHeroX = this.map.gameObjects.hero.x;
   this.progress.startingHeroY = this.map.gameObjects.hero.y;
   this.progress.startingHeroDirection = this.map.gameObjects.hero.direction;
-  let storyflags = window.playerState.storyFlags;
 
-  if (storyflags.Intro && storyflags.Intro.complete === false) {
-      this.map.startCutscene([
-          {type: "textMessage", text: "Coucou les amis"},
-      ])
-      storyflags.Intro.complete = true;
-      console.log(storyflags.Intro)
-  }
-
-
+  this.cinematic = new Cinematic(this.map)
+  this.cinematic.runCinematic(this.progress.mapId);
  }
 
  async init() {

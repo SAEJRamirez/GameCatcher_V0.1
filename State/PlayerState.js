@@ -10,7 +10,7 @@ class PlayerState {
                 level: 1,
                 status: null,
             },
-            /* "f2": {
+            "f2": {
                 fighterId: "v001",
                 hp: 50,
                 maxHp: 50,
@@ -18,7 +18,7 @@ class PlayerState {
                 maxXp: 100,
                 level: 1,
                 status: null,
-            },*/
+            },
         }
         this.lineup = ["f1"];
         this.items = [
@@ -29,7 +29,7 @@ class PlayerState {
         this.storyFlags = {
             Intro: {
                 flag: "Intro",
-                complete: true
+                complete: false
             }
         }
 
