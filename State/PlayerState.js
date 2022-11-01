@@ -27,7 +27,13 @@ class PlayerState {
             { actionId: "item_recoverHp", instanceId: "item3" },
         ]
         this.storyFlags = {
+            Intro: {
+                flag: "Intro",
+                complete: true
+            }
         }
+
+
     }
 
     addFighter(fighterId) {

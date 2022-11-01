@@ -105,7 +105,10 @@ class OverworldEvent {
   }
 
   addStoryFlag(resolve) {
-    window.playerState.storyFlags[this.event.flag] = true;
+    window.playerState.storyFlags[this.event.flag] = {
+      flag: this.event.flag,
+      complete: true
+    }
     resolve();
   }
 
