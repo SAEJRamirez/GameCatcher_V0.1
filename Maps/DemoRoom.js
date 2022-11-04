@@ -12,8 +12,21 @@ const DemoRoom = {
         npcA: {
             type: "Person",
             x: utils.withGrid(7),
-            y: utils.withGrid(2),
-            src: "/images/personnages/personnes/npc3.png"
+            y: utils.withGrid(5),
+            src: "/images/personnages/personnes/npc3.png",
+
+            talking: [
+                {
+                    required: ["Intro"],
+                    events: [
+                        { type: "textMessage", text: "Je vais te défoncer", who:"Beth" },
+                        { type: "battle", enemyId: "beth"},
+                        { type: "addStoryFlag", flag: "DEFEATED_BETH" },
+                        { type: "textMessage", text: "Tu m'as défoncé", who:"Beth"},
+                        { type: "textMessage", text: "Dégage, vilain !", who:"Beth"}
+                    ]
+                }
+            ],
         }
 
     },
@@ -27,11 +40,10 @@ const DemoRoom = {
                         x: utils.withGrid(18),
                         y: utils.withGrid(20),
                         direction: "down"
-                    }
+                    },
                 ]
             }
         ],
-
     },
 
     walls: {

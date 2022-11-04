@@ -14,7 +14,7 @@ class Battle {
         });
         //Ajouter dynamiquement l'équipe ennemie
         Object.keys(this.enemy.fighters).forEach(key => {
-            this.addCombatant("e_"+key, "enemy", this.enemy.fighters[id])
+            this.addCombatant("e_"+key, "enemy", this.enemy.fighters[key])
         });
 
         //Objets

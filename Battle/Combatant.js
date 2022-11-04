@@ -88,9 +88,9 @@ class Combatant {
 
     //TODO voir quels status on a besoin (empoisonné etc...)
     getReplacedEvents(originalEvents) {
-        if (this.status?.type === "clumsy" && utils.randomFromArray([true, false, false])) {
+        if (this.status?.type === "glisee" && utils.randomFromArray([true, false, false])) {
             return [
-                { type: "textMessage", text: `${this.name} flops over!` },
+                { type: "textMessage", text: `${this.name} glisse sur une peau de banane!` },
             ]
         }
         return originalEvents;
@@ -98,9 +98,9 @@ class Combatant {
 
     //TODO voir quels status on a besoin (empoisonné etc...)
     getPostEvents() {
-        if (this.status?.type === "saucy") {
+        if (this.status?.type === "soigné") {
             return [
-                { type: "textMessage", text: "Feelin' saucy!" },
+                { type: "textMessage", text: "MMMh c'est bon!" },
                 { type: "stateChange", recover: 5, onCaster: true }
             ]
         }

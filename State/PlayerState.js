@@ -11,7 +11,7 @@ class PlayerState {
                 status: null,
             },
             "f2": {
-                fighterId: "v001",
+                fighterId: "s002",
                 hp: 50,
                 maxHp: 50,
                 xp: 0,

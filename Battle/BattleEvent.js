@@ -13,7 +13,8 @@ class BattleEvent {
             text,
             onComplete: () => {
                 resolve();
-            }
+            },
+            who: "Narrateur"
         })
         message.init( this.battle.element )
     }

@@ -2,51 +2,51 @@
 
 window.Actions = {
     damage1: {
-        name: "Whomp!",
-        description: "Pillowy punch of dough",
+        name: "Jump",
+        description: "Un saut écrant !",
         success: [
             { type: "textMessage", text: "{CASTER} uses {ACTION}!"},
             { type: "animation", animation: "spin"},
             { type: "stateChange", damage: 10}
         ]
     },
-    saucyStatus: {
-        name: "Tomato Squeeze",
-        description: "Applies the Saucy status",
+    healDot: {
+        name: "Soins",
+        description: "Applique un effet de soin",
         targetType: "friendly",
         success: [
-            { type: "textMessage", text: "{CASTER} uses {ACTION}!"},
-            { type: "stateChange", status: { type: "saucy", expiresIn: 3 } }
+            { type: "textMessage", text: "{CASTER} uses {ACTION}!", who: ""},
+            { type: "stateChange", status: { type: "soigné", expiresIn: 3 } }
         ]
     },
-    clumsyStatus: {
-        name: "Olive Oil",
-        description: "Slippery mess of deliciousness",
+    bananaSlip: {
+        name: "Banana",
+        description: "Attention, ça glisse...",
         success: [
-            { type: "textMessage", text: "{CASTER} uses {ACTION}!"},
-            { type: "animation", animation: "glob", color: "#dafd2a" },
-            { type: "stateChange", status: { type: "clumsy", expiresIn: 3 } },
-            { type: "textMessage", text: "{TARGET} is slipping all around!"},
+            { type: "textMessage", text: "{CASTER} uses {ACTION}!", who: ""},
+            { type: "animation", animation: "glob", color: "#fdf22a" },
+            { type: "stateChange", status: { type: "glisse", expiresIn: 3 } },
+            { type: "textMessage", text: "{TARGET} glisse sur une peau de banane!", who: ""},
         ]
     },
     //Items
     item_recoverStatus: {
-        name: "Heating Lamp",
-        description: "Feeling fresh and warm",
+        name: "Gel hydro-alcoolique",
+        description: "Retire tous les status",
         targetType: "friendly",
         success: [
-            { type: "textMessage", text: "{CASTER} uses a {ACTION}!"},
+            { type: "textMessage", text: "{CASTER} uses a {ACTION}!", who: ""},
             { type: "stateChange", status: null },
-            { type: "textMessage", text: "Feeling fresh!", },
+            { type: "textMessage", text: "Ho oui je suis désinfecté!", who: ""},
         ]
     },
     item_recoverHp: {
-        name: "Parmesan",
+        name: "Potion de soin",
         targetType: "friendly",
         success: [
-            { type:"textMessage", text: "{CASTER} sprinkles on some {ACTION}!", },
+            { type:"textMessage", text: "{CASTER} tète une bonne {ACTION}!",who: "" },
             { type:"stateChange", recover: 10, },
-            { type:"textMessage", text: "{CASTER} recovers HP!", },
+            { type:"textMessage", text: "{CASTER} rècupère sa santé!",who: "" },
         ]
     },
 }
