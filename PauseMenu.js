@@ -4,24 +4,78 @@ class PauseMenu {
         this.onComplete = onComplete;
     }
 
-    getOptions(pageKey) {
+    getOptions(pageKey, id = null) {
 
         //Cas 1: Montrer la première page d'options
-        if (pageKey === "root") {
-            const lineupFighters = playerState.lineup.map(id => {
-                const {fighterId} = playerState.fighters[id];
-                const base = Fighters[fighterId];
+        if(pageKey === "games") {
+            let temps = [];
+            const games = playerState.lineup.map(id => {
+              const {fighterId} = playerState.fighters[id];
+              const gameOfFighter = Fighters[fighterId];
+              if(temps.length > 0) {
+                  temps.forEach(entry => {
+                      if(entry.game !== gameOfFighter.game) {
+                          temps.push(gameOfFighter)
+                      }
+                  })
+              } else {
+                  temps.push(gameOfFighter)
+              }
+            })
+
+            const final = temps.map(game => {
                 return {
-                    label: base.name,
-                    description: base.description,
-                    handler: () => {
-                        this.keyboardMenu.setOptions( this.getOptions(id) )
+                    label: game.game,
+                    description: game.description,
+                    handler: () =>{
+                        this.keyboardMenu.setOptions( this.getOptions("fighters", game.gameId))
                     }
                 }
             })
 
             return [
-                ...lineupFighters,
+                ...final
+            ]
+
+        }
+
+        if (pageKey === "fighters") {
+            let temp = [];
+            let idForSwap;
+            const fighters = playerState.lineup.map(fId => {
+                const {fighterId} = playerState.fighters[fId];
+                idForSwap = fId;
+                if(Fighters[fighterId].gameId === id) {
+                    temp.push(Fighters[fighterId]);
+                }
+            })
+            const final = temp.map(fighter => {
+                return {
+                    label: fighter.name,
+                    description: fighter.description,
+                    handler: () => {
+                        this.keyboardMenu.setOptions( this.getOptions(idForSwap))
+                    }
+                }
+            })
+            return [
+                ...final
+            ]
+
+        }
+
+
+
+        if (pageKey === "root") {
+            return [
+
+                {
+                    label: "Games",
+                    description: "Vos jeux",
+                    handler: () => {
+                        this.keyboardMenu.setOptions( this.getOptions("games"))
+                    }
+                },
                 {
                     label: "Save",
                     description: "Save your progress",

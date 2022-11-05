@@ -3,6 +3,7 @@ class PlayerState {
         this.fighters = {
             "f1": {
                 fighterId: "s001",
+                gameId: "hms1",
                 hp: 50,
                 maxHp: 50,
                 xp: 0,
@@ -12,6 +13,17 @@ class PlayerState {
             },
             "f2": {
                 fighterId: "s002",
+                gameId: "hms1",
+                hp: 50,
+                maxHp: 50,
+                xp: 0,
+                maxXp: 100,
+                level: 1,
+                status: null,
+            },
+            "f3": {
+                fighterId: "s003",
+                gameId: "tlz1",
                 hp: 50,
                 maxHp: 50,
                 xp: 0,
@@ -20,7 +32,7 @@ class PlayerState {
                 status: null,
             },
         }
-        this.lineup = ["f1"];
+        this.lineup = ["f1", "f2", "f3"];
         this.items = [
             { actionId: "item_recoverHp", instanceId: "item1" },
             { actionId: "item_recoverHp", instanceId: "item2" },

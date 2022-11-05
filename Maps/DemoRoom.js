@@ -12,7 +12,7 @@ const DemoRoom = {
         npcA: {
             type: "Person",
             x: utils.withGrid(7),
-            y: utils.withGrid(5),
+            y: utils.withGrid(9),
             src: "/images/personnages/personnes/npc3.png",
 
             talking: [
