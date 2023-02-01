@@ -5,7 +5,7 @@ import {OverworldMap} from "./OverworldMap.js";
 import {Cinematic} from "./Cinematic.js";
 import {KeyPressListener} from "./KeyPressListener.js";
 import {DirectionInput} from "./DirectionInput.js";
-import {OverworldMaps} from "./Maps/Maps.js";
+import {OverworldMaps} from "../Maps/Maps.js";
 
 
 export class Overworld {

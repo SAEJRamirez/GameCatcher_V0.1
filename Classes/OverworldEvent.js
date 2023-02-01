@@ -1,10 +1,10 @@
 import {TextMessage} from "./TextMessage.js";
 import {CraftingMenu} from "./CraftingMenu.js";
-import {Battle} from "./Battle/Battle.js";
+import {Battle} from "../Battle/Battle.js";
 import {SceneTransition} from "./SceneTransition.js";
 import {PauseMenu} from "./PauseMenu.js";
-import {OverworldMaps} from "./Maps/Maps.js";
-import {Enemies} from "./Content/enemies.js";
+import {OverworldMaps} from "../Maps/Maps.js";
+import {Enemies} from "../Content/enemies.js";
 
 export class OverworldEvent {
   constructor({ map, event}) {

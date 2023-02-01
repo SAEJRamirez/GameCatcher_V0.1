@@ -2,8 +2,8 @@ import {utils} from "../utils.js";
 
 export const DemoRoom = {
     id: "DemoRoom",
-    lowerSrc: "/images/cartes/DemoRoomLower.png",
-    upperSrc: "/images/cartes/DemoRoomUpper.png",
+    lowerSrc: "/img/cartes/DemoRoomLower.png",
+    upperSrc: "/img/cartes/DemoRoomUpper.png",
     configObjects: {
         hero: {
             type: "Person",
@@ -15,7 +15,7 @@ export const DemoRoom = {
             type: "Person",
             x: utils.withGrid(7),
             y: utils.withGrid(9),
-            src: "/images/personnages/personnes/npc3.png",
+            src: "/img/personnages/personnes/npc3.png",
 
             talking: [
                 {

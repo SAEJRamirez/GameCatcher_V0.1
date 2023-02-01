@@ -2,8 +2,8 @@ import {utils} from '../utils.js'
 
 export const CvMap = {
     id: "CvMap",
-        lowerSrc: "/images/cartes/CvMap.png",
-        upperSrc: "/images/cartes/CvMapUpper.png",
+        lowerSrc: "/img/cartes/CvMap.png",
+        upperSrc: "/img/cartes/CvMapUpper.png",
         configObjects: {
         hero: {
             type: "Person",
@@ -15,7 +15,7 @@ export const CvMap = {
             type: "Person",
                 x: utils.withGrid(15),
                 y: utils.withGrid(32),
-                src:"/images/personnages/personnes/npc1.png",
+                src:"/img/personnages/personnes/npc1.png",
                 behaviorLoop: [
                 { type: "walk", direction: "down"},
                 { type: "walk", direction: "down"},
@@ -41,7 +41,7 @@ export const CvMap = {
             type: "Person",
                 x: utils.withGrid(13),
                 y: utils.withGrid(32),
-                src: "/images/personnages/personnes/npc3.png",
+                src: "/img/personnages/personnes/npc3.png",
                 behaviorLoop: [
                 { type: "walk", direction: "right"},
                 { type: "walk", direction: "right"},
@@ -67,7 +67,7 @@ export const CvMap = {
             type: "Person",
             x:utils.withGrid(23),
             y:utils.withGrid(33),
-            src: "/images/personnages/personnes/erio.png",
+            src: "/img/personnages/personnes/erio.png",
             behaviorLoop: [
             { type: "stand", direction: "left", time: 2200},
             { type: "stand", direction: "up", time: 1800},

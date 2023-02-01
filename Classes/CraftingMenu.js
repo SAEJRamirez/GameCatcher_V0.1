@@ -1,7 +1,7 @@
 //TODO à compléter si besoin d'un menu crafting ou pour ramasser les objects
 import {KeyboardMenu} from "./KeyboardMenu.js";
 import {ArcadeStation} from "./ArcadeStation.js";
-import {Fighters} from "./Content/fighters.js";
+import {Fighters} from "../Content/fighters.js";
 
 
 export class CraftingMenu {
@@ -20,7 +20,7 @@ export class CraftingMenu {
                 description: base.description,
                 handler: () => {
                     this.arcadeStation = new ArcadeStation(this.fighters, this.map)
-                    this.arcadeStation.runNewGame(id);
+                    this.arcadeStation.menuRunNewGame(id);
                     this.close();
                 }
             }

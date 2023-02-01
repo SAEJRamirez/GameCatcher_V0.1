@@ -1,5 +1,5 @@
-import {TextMessage} from "../TextMessage.js";
-import {SubmissionMenu} from "../SubmissionMenu.js";
+import {TextMessage} from "../Classes/TextMessage.js";
+import {SubmissionMenu} from "../Classes/SubmissionMenu.js";
 import {utils} from "../utils.js";
 import {BattleAnimations} from "./BattleAnimations.js";
 

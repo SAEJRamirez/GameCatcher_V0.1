@@ -1,4 +1,4 @@
-import {Overworld} from './Overworld.js'
+import {Overworld} from './Classes/Overworld.js'
 
 (function () {
 

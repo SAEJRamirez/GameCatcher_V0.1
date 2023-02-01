@@ -24,7 +24,7 @@ export const Fighters = {
         description: "La soeur cachée de Luigi",
         type: FighterTypes.normal,
         src: "",
-        icon: "/images/icones/chill.png",
+        icon: "/img/icones/chill.png",
         actions: [ "damage1" ],
     },
     "s003": {
@@ -34,7 +34,7 @@ export const Fighters = {
         description: "Le héro qui sauvera Zalde",
         type: FighterTypes.combat,
         src: "",
-        icon: "/images/icones/chill.png",
+        icon: "/img/icones/chill.png",
         actions: [ "damage1", "healDot", "bananaSlip" ],
     },
 }

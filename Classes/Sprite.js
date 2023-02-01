@@ -1,4 +1,4 @@
-import {utils} from "./utils.js";
+import {utils} from "../utils.js";
 
 export class Sprite {
   constructor(config) {
@@ -14,7 +14,7 @@ export class Sprite {
     this.shadow = new Image();
     this.useShadow = true; //config.useShadow || false
     if (this.useShadow) {
-      this.shadow.src = "/images/personnages/shadow.png";
+      this.shadow.src = "/img/personnages/shadow.png";
     }
     this.shadow.onload = () => {
       this.isShadowLoaded = true;

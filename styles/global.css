@@ -26,8 +26,7 @@ body {
     height: 198px; /* 198px*/
     margin: 0 auto;
     outline: 1px solid #fff;
-
-    transform: scale(3) translateY(50%);
+    transform: scale(2.8) translateY(50%);
     /*x2 pour les anciennes et 35%*/
 }
 
@@ -36,10 +35,9 @@ body {
 }
 
 .next-game-canvas {
+    margin: -110px auto;
+    position: relative;
     display: none;
     image-rendering: pixelated;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    z-index: 99;
 }

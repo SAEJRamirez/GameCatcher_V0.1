@@ -1,7 +1,7 @@
 import {Person} from "./Person.js";
 import {CraftingStone} from "./CraftingStone.js";
 import {OverworldEvent} from "./OverworldEvent.js";
-import {utils} from "./utils.js";
+import {utils} from "../utils.js";
 
 export class OverworldMap {
   constructor(config) {

@@ -10,7 +10,7 @@ export class GameObject {
     this.direction = config.direction || "down";
     this.sprite = new Sprite({
       gameObject: this,
-      src: config.src || "/images/personnages/personnes/me.png",
+      src: config.src || "/img/personnages/personnes/me.png",
     });
 
     //These happen once on map startup.

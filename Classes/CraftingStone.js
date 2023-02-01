@@ -6,7 +6,7 @@ export class CraftingStone extends GameObject {
         super(config);
         this.sprite = new Sprite({
             gameObject: this,
-            src: "/images/personnages/personnes/erio.png",
+            src: "/img/personnages/personnes/erio.png",
             animations: {
                 "used-down" : [ [0,0] ],
                 "unused-down": [ [1,0] ],

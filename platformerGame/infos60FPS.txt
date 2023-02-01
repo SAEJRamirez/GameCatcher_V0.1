@@ -1,0 +1,19 @@
+Modifications de variables en cas de 60 FPS :
+
+Player : collision enemy => -25  (15)
+
+Main: gravity => 1 (0.3) OK
+
+      animation player:
+        Idle: 2 (5),
+        Run: 3 (6),
+        Jump: 4 (6),
+        Fall: 5 (2)
+      animation enemy:
+        Run: 2 (4)
+
+      Animation():
+        player.velocity.x = 8 && -8 (4) OK
+
+      eventListener:
+        player.velocity.y = -17.5 (10) OK

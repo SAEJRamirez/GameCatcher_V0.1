@@ -1,5 +1,5 @@
-import {Combatant} from "./Battle/Combatant.js";
-import {Fighters} from "./Content/fighters.js";
+import {Combatant} from "../Battle/Combatant.js";
+import {Fighters} from "../Content/fighters.js";
 
 
 export class Hud {

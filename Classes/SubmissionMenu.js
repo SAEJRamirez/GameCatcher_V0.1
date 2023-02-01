@@ -1,5 +1,5 @@
 import {KeyboardMenu} from "./KeyboardMenu.js";
-import {Actions} from "./Content/actions.js";
+import {Actions} from "../Content/actions.js";
 
 export class SubmissionMenu {
     constructor({caster, enemy, onComplete, items, replacements}) {
