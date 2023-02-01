@@ -1,6 +1,6 @@
 //TODO Ici on set les attacks et les hp qu'elles retirent, et les status, et les items
 
-window.Actions = {
+export const Actions = {
     damage1: {
         name: "Jump",
         description: "Un saut écrant !",

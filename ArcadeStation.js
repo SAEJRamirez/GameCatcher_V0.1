@@ -1,4 +1,4 @@
-class ArcadeStation {
+export class ArcadeStation {
     constructor(fighters, map) {
         this.fighters = fighters;
         this.map = map

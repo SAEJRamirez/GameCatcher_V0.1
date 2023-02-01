@@ -1,4 +1,6 @@
-const DemoRoom = {
+import {utils} from "../utils.js";
+
+export const DemoRoom = {
     id: "DemoRoom",
     lowerSrc: "/images/cartes/DemoRoomLower.png",
     upperSrc: "/images/cartes/DemoRoomUpper.png",

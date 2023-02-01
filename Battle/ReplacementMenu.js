@@ -1,4 +1,4 @@
-class ReplacementMenu {
+export class ReplacementMenu {
     constructor({ replacements, onComplete }) {
         this.replacements = replacements;
         this.onComplete = onComplete;

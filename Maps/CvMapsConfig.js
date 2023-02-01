@@ -1,4 +1,6 @@
-const CvMap = {
+import {utils} from '../utils.js'
+
+export const CvMap = {
     id: "CvMap",
         lowerSrc: "/images/cartes/CvMap.png",
         upperSrc: "/images/cartes/CvMapUpper.png",

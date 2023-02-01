@@ -1,4 +1,7 @@
-class TextMessage {
+import {RevealingText} from "./RevealingText.js";
+import {KeyPressListener} from "./KeyPressListener.js";
+
+export class TextMessage {
     constructor({text, onComplete, who}) {
         this.text = text;
         this.onComplete = onComplete;

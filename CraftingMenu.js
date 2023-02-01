@@ -1,6 +1,10 @@
 //TODO à compléter si besoin d'un menu crafting ou pour ramasser les objects
+import {KeyboardMenu} from "./KeyboardMenu.js";
+import {ArcadeStation} from "./ArcadeStation.js";
+import {Fighters} from "./Content/fighters.js";
 
-class CraftingMenu {
+
+export class CraftingMenu {
     constructor({fighters, map, onComplete}) {
         this.fighters = fighters;
         this.onComplete = onComplete;

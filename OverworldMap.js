@@ -1,4 +1,9 @@
-class OverworldMap {
+import {Person} from "./Person.js";
+import {CraftingStone} from "./CraftingStone.js";
+import {OverworldEvent} from "./OverworldEvent.js";
+import {utils} from "./utils.js";
+
+export class OverworldMap {
   constructor(config) {
     this.overworld = null;
     this.gameObjects = {}; // Live objects are in here
@@ -42,10 +47,7 @@ class OverworldMap {
     //Check for game objects at this position
     return Object.values(this.gameObjects).find(obj => {
       if (obj.x === x && obj.y === y) { return true; }
-      if (obj.intentPosition && obj.intentPosition[0] === x && obj.intentPosition[1] === y ) {
-        return true;
-      }
-      return false;
+      return !!(obj.intentPosition && obj.intentPosition[0] === x && obj.intentPosition[1] === y);
     })
 
   }

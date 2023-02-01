@@ -1,4 +1,12 @@
-class OverworldEvent {
+import {TextMessage} from "./TextMessage.js";
+import {CraftingMenu} from "./CraftingMenu.js";
+import {Battle} from "./Battle/Battle.js";
+import {SceneTransition} from "./SceneTransition.js";
+import {PauseMenu} from "./PauseMenu.js";
+import {OverworldMaps} from "./Maps/Maps.js";
+import {Enemies} from "./Content/enemies.js";
+
+export class OverworldEvent {
   constructor({ map, event}) {
     this.map = map;
     this.event = event;
@@ -69,7 +77,7 @@ class OverworldEvent {
 
     const sceneTransition = new SceneTransition();
     sceneTransition.init(document.querySelector(".game-container"), () => {
-      this.map.overworld.startMap( window.OverworldMaps[this.event.map], {
+      this.map.overworld.startMap( OverworldMaps[this.event.map], {
         x: this.event.x,
         y: this.event.y,
         direction: this.event.direction,

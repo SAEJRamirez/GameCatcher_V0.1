@@ -1,4 +1,14 @@
-class Overworld {
+import {Progress} from "./Progress.js";
+import {TitleScreen} from "./TitleScreen.js";
+import {Hud} from "./Hud.js";
+import {OverworldMap} from "./OverworldMap.js";
+import {Cinematic} from "./Cinematic.js";
+import {KeyPressListener} from "./KeyPressListener.js";
+import {DirectionInput} from "./DirectionInput.js";
+import {OverworldMaps} from "./Maps/Maps.js";
+
+
+export class Overworld {
  constructor(config) {
    this.element = config.element;
    this.canvas = this.element.querySelector(".game-canvas");
@@ -119,7 +129,7 @@ class Overworld {
   this.hud.init(container);
 
   //Start the first map
-  this.startMap(window.OverworldMaps[this.progress.mapId], initialHeroState );
+  this.startMap(OverworldMaps[this.progress.mapId], initialHeroState );
 
   //Create controls
   this.bindActionInput();

@@ -1,4 +1,5 @@
-class TurnCycle {
+
+export class TurnCycle {
     constructor({battle, onNewEvent, onWinner}) {
         this.battle = battle;
         this.onNewEvent = onNewEvent;

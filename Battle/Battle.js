@@ -1,4 +1,11 @@
-class Battle {
+import {Combatant} from "./Combatant.js";
+import {Team} from "./Team.js";
+import {TurnCycle} from "./TurnCycle.js";
+import {BattleEvent} from "./BattleEvent.js";
+import {utils} from "../utils.js";
+import {Fighters} from "../Content/fighters.js";
+
+export class Battle {
     constructor({ enemy, onComplete }) {
         this.enemy = enemy;
         this.onComplete = onComplete;

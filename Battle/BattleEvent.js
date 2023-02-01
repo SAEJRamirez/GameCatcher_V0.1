@@ -1,4 +1,9 @@
-class BattleEvent {
+import {TextMessage} from "../TextMessage.js";
+import {SubmissionMenu} from "../SubmissionMenu.js";
+import {utils} from "../utils.js";
+import {BattleAnimations} from "./BattleAnimations.js";
+
+export class BattleEvent {
     constructor(event, battle) {
         this.event = event;
         this.battle = battle;

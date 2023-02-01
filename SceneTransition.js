@@ -1,4 +1,4 @@
-class SceneTransition {
+export class SceneTransition {
     constructor() {
         this.element = null;
     }

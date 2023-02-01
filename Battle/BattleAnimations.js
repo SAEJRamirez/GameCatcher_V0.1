@@ -1,4 +1,6 @@
-window.BattleAnimations = {
+import {utils} from "../utils.js";
+
+export const BattleAnimations = {
     async spin(event, onComplete) {
         const element = event.caster.fighterElement;
         const animationClassName = event.caster.team === "player" ? "battle-spin-right" : "battle-spin-left";

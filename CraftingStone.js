@@ -1,4 +1,7 @@
-class CraftingStone extends GameObject {
+import {GameObject} from "./GameObject.js";
+import {Sprite} from "./Sprite.js";
+
+export class CraftingStone extends GameObject {
     constructor(config) {
         super(config);
         this.sprite = new Sprite({

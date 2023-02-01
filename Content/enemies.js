@@ -1,6 +1,6 @@
 //TODO ici on définit les enemis, leurs sprites, combatants, niveaux etc...
 
-window.Enemies = {
+export const Enemies = {
     "erio": {
         name: "Erio",
         src: "/images/personnages/personnes/erio.png",

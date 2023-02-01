@@ -1,4 +1,4 @@
-class Progress {
+export class Progress {
     constructor() {
         this.mapId = "DemoRoom";
         this.startingHeroX = 0;

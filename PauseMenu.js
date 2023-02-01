@@ -1,4 +1,9 @@
-class PauseMenu {
+import {KeyboardMenu} from "./KeyboardMenu.js";
+import {utils} from "./utils.js";
+import {KeyPressListener} from "./KeyPressListener.js";
+import {Fighters} from "./Content/fighters.js";
+
+export class PauseMenu {
     constructor({progress, onComplete}) {
         this.progress = progress;
         this.onComplete = onComplete;

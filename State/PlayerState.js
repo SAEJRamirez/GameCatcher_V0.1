@@ -1,3 +1,5 @@
+import {utils} from "../utils.js";
+
 class PlayerState {
     constructor() {
         this.fighters = {

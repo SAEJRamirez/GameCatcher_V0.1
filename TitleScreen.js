@@ -1,4 +1,4 @@
-class TitleScreen {
+export class TitleScreen {
     constructor({progress}) {
         this.progress = progress;
     }

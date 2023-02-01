@@ -1,4 +1,6 @@
-class KeyboardMenu {
+import {KeyPressListener} from "./KeyPressListener.js";
+
+export class KeyboardMenu {
     constructor(config) {
         this.options = []; //Configuré par la méthode Update
         this.up = null;

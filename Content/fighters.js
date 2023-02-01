@@ -1,4 +1,4 @@
-window.FighterTypes = {
+export const FighterTypes = {
     normal: "normal",
     combat: "combat",
     fire: "fire",
@@ -6,7 +6,7 @@ window.FighterTypes = {
     magic: "magic",
 }
 
-window.Fighters = {
+export const Fighters = {
     "s001": {
         name: "Maria",
         game: "Hyper Maria Siss",

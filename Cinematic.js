@@ -1,4 +1,4 @@
-class Cinematic {
+export class Cinematic {
 
     constructor(map) {
         this.storyflags = window.playerState.storyFlags;
