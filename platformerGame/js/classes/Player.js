@@ -1,5 +1,6 @@
 //Imports
-import {ctx, gravity, playerDeath} from "../platformerMain.js"
+import {ctx, playerDeath} from "../platformerMain.js"
+import {gravity} from "../init.js";
 import {
     collision,
     collisionSidesEnemy,

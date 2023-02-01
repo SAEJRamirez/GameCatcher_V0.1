@@ -2,76 +2,29 @@
 import {renderCollisionBlocks} from "./tools/renderCollisionBlocks.js"
 import {init, camera, cameraBg, enemies, player, background, backgroundMap, deathSprites, scoreBoard} from "./init.js";
 import {killChoompy} from "./tools/killEnemies.js";
+import {actualFps} from "../../init.js";
 
 
 //Canvas setup
 export let canvas = null ;
 export let ctx = null ;
-//canvas.width = 1024;
-//canvas.height = 576;
+
 
 //Variables
-export let actualFps = 0;
-export let setTest = false;
-let messageFps = document.getElementById('message');
 export let score = 0;
 export let winPlatformerLevel1 = false;
 
-//Test FPS
-/*function testFps() {
-    let prevTime = Date.now(),
-        frames = 0;
 
-    requestAnimationFrame(function loop() {
-        const time = Date.now();
-        frames++;
-        if (time > prevTime + 1000) {
-            let fps = Math.round((frames * 1000))
-            prevTime = time;
-            frames = 0;
-            actualFps = fps / 1000;
-            console.log(fps / 1000)
-            messageFps.textContent = `Testing your FPS... Please wait... (${fps / 1000})`
-        }
-        if (!setTest) {
-            requestAnimationFrame(loop)
-        }
-
-    })
-}*/
 export function runGame(trigger) {
     if (trigger === true) {
         canvas = document.querySelector('.next-game-canvas')
         ctx = canvas.getContext('2d')
         canvas.style.display = "flex"
-        //setTest = true
-        //console.log(actualFps)
-        //messageFps.remove()
-        //Fire up game
         init();
         animate();
     }
 }
 
-
-//testFps();
-/*setTimeout(() => {
-    setTest = true
-    console.log(actualFps)
-    messageFps.remove()
-    //Fire up game
-    init();
-    animate();
-}, 2000)*/
-
-
-//Const, variables
-export let gravity;
-if (actualFps <= 59) {
-    gravity = 1
-} else if (actualFps >= 65) {
-    gravity = 0.3
-}
 export const keys = {
     d: {
         pressed: false

@@ -10,14 +10,28 @@
 
 * {
     box-sizing:border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
     background: #333;
-    padding: 0;
-    margin: 0;
     overflow: hidden;
     font-family: 'Ribeye', cursive;
+}
+
+#message-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#message {
+    width: 100%;
+    color: white
 }
 
 .game-container {
@@ -27,6 +41,7 @@ body {
     margin: 0 auto;
     outline: 1px solid #fff;
     transform: scale(2.8) translateY(50%);
+    display: none;
     /*x2 pour les anciennes et 35%*/
 }
 

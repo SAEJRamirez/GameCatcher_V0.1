@@ -8,6 +8,7 @@ import {
 import {Sprite} from "./classes/Sprite.js";
 import {spawnEnemies} from "./spawns/spawnEnemies.js";
 import {ScoreBoard} from "./classes/ScoreBoard.js";
+import {actualFps} from "../../init.js";
 
 
 export let player;
@@ -18,6 +19,7 @@ export let cameraBg;
 export let enemies;
 export let deathSprites;
 export let scoreBoard;
+export let gravity = 0;
 
 function initPlayer() {
     player = new Player({
@@ -110,6 +112,13 @@ function initBackground() {
 }
 
 export function init() {
+
+    if (actualFps >= 56) {
+        gravity = 1
+    } else if (actualFps <= 55) {
+        gravity = 0.3
+    }
+
     enemies = [];
     deathSprites = [];
     camera = {

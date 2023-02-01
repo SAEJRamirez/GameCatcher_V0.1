@@ -1,5 +1,6 @@
 import {Sprite} from "./Sprite.js";
-import {ctx, gravity} from "../platformerMain.js";
+import {ctx} from "../platformerMain.js";
+import {gravity} from "../init.js";
 import {collision, objectDownCollision} from "../tools/collisionUtils.js";
 import {groundCollisionBlocks, platformDownCollisionBlocks} from "../tools/utils.js";
 
