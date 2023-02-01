@@ -44,4 +44,4 @@ function startGameCatcher () {
     });
     overworld.init();
 
-};
+}
