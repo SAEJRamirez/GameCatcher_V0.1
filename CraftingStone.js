@@ -3,7 +3,7 @@ class CraftingStone extends GameObject {
         super(config);
         this.sprite = new Sprite({
             gameObject: this,
-            src: "/images/personnages/crafting-stone.png",
+            src: "/images/personnages/personnes/erio.png",
             animations: {
                 "used-down" : [ [0,0] ],
                 "unused-down": [ [1,0] ],
@@ -22,7 +22,7 @@ class CraftingStone extends GameObject {
             },
             {
                 events: [
-                    {type: "textMessage", text: "Approaching the legendary crafting stone..."},
+                    {type: "textMessage", text: "Welcome Player, ready to win ?", who: "ArcadEx"},
                     {type: "craftingMenu", fighters: this.fighters},
                     {type: "addStoryFlag", flag: this.storyFlag}
                 ]

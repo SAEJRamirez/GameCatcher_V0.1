@@ -4,6 +4,7 @@ class CraftingMenu {
     constructor({fighters, onComplete}) {
         this.fighters = fighters;
         this.onComplete = onComplete;
+        this.arcadeStation = new ArcadeStation(fighters)
     }
 
     getOptions() {
@@ -13,7 +14,7 @@ class CraftingMenu {
                 label: base.name,
                 description: base.description,
                 handler: () => {
-                    playerState.addFighter(id);
+                    this.arcadeStation.runNewGame(id);
                     this.close();
                 }
             }
@@ -24,7 +25,7 @@ class CraftingMenu {
         this.element = document.createElement("div");
         this.element.classList.add("overlayMenu");
         this.element.innerHTML = (`
-            <h2>Create a Fighter</h2>
+            <h2>Unlock a Fighter</h2>
         `)
     }
 
