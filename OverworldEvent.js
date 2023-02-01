@@ -115,6 +115,7 @@ class OverworldEvent {
   craftingMenu(resolve) {
     const menu = new CraftingMenu({
       fighters: this.event.fighters,
+      map: this.map,
       onComplete: () => {
         resolve();
       }

@@ -1,10 +1,11 @@
 //TODO à compléter si besoin d'un menu crafting ou pour ramasser les objects
 
 class CraftingMenu {
-    constructor({fighters, onComplete}) {
+    constructor({fighters, map, onComplete}) {
         this.fighters = fighters;
         this.onComplete = onComplete;
-        this.arcadeStation = new ArcadeStation(fighters)
+        this.map = map
+        this.arcadeStation = null
     }
 
     getOptions() {
@@ -14,6 +15,7 @@ class CraftingMenu {
                 label: base.name,
                 description: base.description,
                 handler: () => {
+                    this.arcadeStation = new ArcadeStation(this.fighters, this.map)
                     this.arcadeStation.runNewGame(id);
                     this.close();
                 }
