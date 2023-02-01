@@ -1,7 +1,7 @@
 import {EnemyVampBat} from "../classes/EnemyVampBat.js";
 import {EnemyChoompyMax} from "../classes/EnemyChoompyMax.js";
 import {EnemyChoompy} from "../classes/EnemyChoompy.js";
-import {enemies} from "../init.js";
+import {enemies} from "../initPlatformer.js";
 
 
 function spawnChoompys() {

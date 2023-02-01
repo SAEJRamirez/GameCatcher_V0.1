@@ -1,8 +1,8 @@
 //Imports
 import {renderCollisionBlocks} from "./tools/renderCollisionBlocks.js"
-import {init, camera, cameraBg, enemies, player, background, backgroundMap, deathSprites, scoreBoard} from "./init.js";
+import {initPlatformer, camera, cameraBg, enemies, player, background, backgroundMap, deathSprites, scoreBoard} from "./initPlatformer.js";
 import {killChoompy} from "./tools/killEnemies.js";
-import {actualFps} from "../../init.js";
+import {actualFps} from "../../initMain.js";
 
 
 //Canvas setup
@@ -20,7 +20,7 @@ export function runGame(trigger) {
         canvas = document.querySelector('.next-game-canvas')
         ctx = canvas.getContext('2d')
         canvas.style.display = "flex"
-        init();
+        initPlatformer();
         animate();
     }
 }
@@ -112,7 +112,7 @@ function animate() {
 
     //Check for death
     if (player.position.y > canvas.height) {
-        init();
+        initPlatformer();
     }
 
     //Check for win
@@ -136,7 +136,7 @@ export function playerDeath(key, index = 0, enemy = "") {
 
         setTimeout(() => {
             player.isDead = false
-            init()
+            initPlatformer()
         }, 800)
     }
     if (key === "spikeDown" && player.isDead) {
@@ -154,7 +154,7 @@ export function playerDeath(key, index = 0, enemy = "") {
         }
         if (player.animationEnd) {
             player.animationEnd = false
-            init()
+            initPlatformer()
         }
     }
 
@@ -165,7 +165,7 @@ export function playerDeath(key, index = 0, enemy = "") {
             player.switchSprite("Die")
         }
         player.animationEnd = false
-        init()
+        initPlatformer()
 
     }
 }

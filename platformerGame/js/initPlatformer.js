@@ -8,7 +8,7 @@ import {
 import {Sprite} from "./classes/Sprite.js";
 import {spawnEnemies} from "./spawns/spawnEnemies.js";
 import {ScoreBoard} from "./classes/ScoreBoard.js";
-import {actualFps} from "../../init.js";
+import {actualFps} from "../../initMain.js";
 
 
 export let player;
@@ -111,7 +111,7 @@ function initBackground() {
     scoreBoard = new ScoreBoard(0)
 }
 
-export function init() {
+export function initPlatformer() {
 
     if (actualFps >= 56) {
         gravity = 1

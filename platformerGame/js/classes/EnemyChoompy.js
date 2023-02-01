@@ -1,6 +1,6 @@
 import {Sprite} from "./Sprite.js";
 import {ctx} from "../platformerMain.js";
-import {gravity} from "../init.js";
+import {gravity} from "../initPlatformer.js";
 import {collision, objectDownCollision} from "../tools/collisionUtils.js";
 import {groundCollisionBlocks, platformDownCollisionBlocks} from "../tools/utils.js";
 
@@ -41,7 +41,7 @@ export class EnemyChoompy extends Sprite {
                     frameRate: 18,
                     frameBuffer: 2
             },
-        },
+        }
         this.type = "Choompy";
 
 

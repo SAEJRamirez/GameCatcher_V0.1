@@ -1,6 +1,6 @@
 //Imports
 import {ctx, playerDeath} from "../platformerMain.js"
-import {gravity} from "../init.js";
+import {gravity} from "../initPlatformer.js";
 import {
     collision,
     collisionSidesEnemy,
@@ -9,7 +9,7 @@ import {
 } from "../tools/collisionUtils.js";
 import {Sprite} from "./Sprite.js";
 import {killChoompy, killChoompyMax, killVampBat} from "../tools/killEnemies.js";
-import {scoreBoard} from "../init.js";
+import {scoreBoard} from "../initPlatformer.js";
 
 //Player class
 export class Player extends Sprite {

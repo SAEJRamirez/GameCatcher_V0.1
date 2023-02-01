@@ -1,4 +1,4 @@
-import {deathSprites, enemies, scoreBoard} from "../init.js";
+import {deathSprites, enemies, scoreBoard} from "../initPlatformer.js";
 import {Sprite} from "../classes/Sprite.js";
 import {EnemyChoompy} from "../classes/EnemyChoompy.js";
 
