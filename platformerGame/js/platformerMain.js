@@ -185,12 +185,15 @@ window.addEventListener('keydown', (e) => {
             keys.a.pressed = true
             break;
         case "w":
-            if (!player.isJumping && player.velocity.y === 0 && !player.isDead && actualFps >= 59) {
+            if (!player.isJumping && player.velocity.y === 0 && !player.isDead) {
                 player.isJumping = true
-                player.velocity.y = -18.5;
-            } else if (player.isJumping && player.velocity.y === 0 && !player.isDead && actualFps <= 65) {
-                player.isJumping = true
-                player.velocity.y = -10;
+                if (actualFps <= 55) {
+                    player.velocity.y = -10;
+
+                } else {
+                    player.velocity.y = -18.5;
+
+                }
             }
             break;
     }
