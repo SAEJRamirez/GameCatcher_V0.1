@@ -1,3 +1,4 @@
+
 export const utils = {
   withGrid(n) {
     return n * 16;
@@ -44,6 +45,10 @@ export const utils = {
       detail
     });
     document.dispatchEvent(event);
-  }
+  },
+
+  endingGame(canvas, fighterId) {
+    canvas.style.display = "none";
+  },
   
 }

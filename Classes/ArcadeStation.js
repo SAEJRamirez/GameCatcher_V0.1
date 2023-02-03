@@ -1,4 +1,4 @@
-import {runGame, winPlatformerLevel1} from "../platformerGame/js/platformerMain.js";
+import {runGame} from "../platformerGame/js/platformerMain.js";
 
 export class ArcadeStation {
     constructor(fighters, map) {
@@ -7,16 +7,16 @@ export class ArcadeStation {
     }
 
     menuRunNewGame(fighterId) {
-        this.map.isPaused = true
+        //this.map.isPaused = true
 
         switch (fighterId) {
             case "s001":
-                this.runPlatformer()
+                this.runPlatformer(fighterId)
                 break;
         }
     }
 
-    runPlatformer() {
-        runGame(true)
+    runPlatformer(id) {
+        runGame(id, this.map)
     }
 }

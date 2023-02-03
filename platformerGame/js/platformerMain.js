@@ -3,6 +3,7 @@ import {renderCollisionBlocks} from "./tools/renderCollisionBlocks.js"
 import {initPlatformer, camera, cameraBg, enemies, player, background, backgroundMap, deathSprites, scoreBoard} from "./initPlatformer.js";
 import {killChoompy} from "./tools/killEnemies.js";
 import {actualFps} from "../../initMain.js";
+import {utils} from "../../utils.js";
 
 
 //Canvas setup
@@ -12,17 +13,19 @@ export let ctx = null ;
 
 //Variables
 export let score = 0;
-export let winPlatformerLevel1 = false;
+export let figtherPlatformerId = "";
+let initialGameCatcherMap = null;
+let reqAnimationFrame;
 
 
-export function runGame(trigger) {
-    if (trigger === true) {
-        canvas = document.querySelector('.next-game-canvas')
-        ctx = canvas.getContext('2d')
-        canvas.style.display = "flex"
-        initPlatformer();
-        animate();
-    }
+export function runGame(id, map) {
+    canvas = document.querySelector('.next-game-canvas')
+    ctx = canvas.getContext('2d')
+    canvas.style.display = "flex"
+    figtherPlatformerId = id;
+    initialGameCatcherMap = map;
+    initPlatformer();
+    animate();
 }
 
 export const keys = {
@@ -37,7 +40,7 @@ export const keys = {
 //Game loop
 function animate() {
     //Request for loop animation
-    window.requestAnimationFrame(animate);
+    reqAnimationFrame = window.requestAnimationFrame(animate);
 
     //Clear canvas every frames
     ctx.fillStyle = "white";
@@ -115,10 +118,13 @@ function animate() {
         initPlatformer();
     }
 
-    //Check for win
-    if (player.position.x >= 12550 && scoreBoard.score >= 130) {
-        console.log("WIIIIIN")
+    //Check for win 12550
+    if (player.position.x >= 1000 && scoreBoard.score >= 10) {
+        window.cancelAnimationFrame(reqAnimationFrame)
+        utils.endingGame(canvas, figtherPlatformerId)
+        initialGameCatcherMap.isPaused = false
     }
+
 }
 
 
@@ -166,7 +172,6 @@ export function playerDeath(key, index = 0, enemy = "") {
         }
         player.animationEnd = false
         initPlatformer()
-
     }
 }
 
