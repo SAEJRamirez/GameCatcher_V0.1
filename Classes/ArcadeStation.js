@@ -17,6 +17,7 @@ export class ArcadeStation {
     }
 
     runPlatformer(id) {
+        this.map.isPaused = true;
         runGame(id, this.map)
     }
 }

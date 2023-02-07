@@ -123,6 +123,7 @@ function animate() {
         window.cancelAnimationFrame(reqAnimationFrame)
         utils.endingGame(canvas, figtherPlatformerId)
         initialGameCatcherMap.isPaused = false
+        initialGameCatcherMap.overworld.startGameLoop();
     }
 
 }

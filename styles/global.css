@@ -50,7 +50,9 @@ body {
 }
 
 .next-game-canvas {
-    margin: -110px auto;
+    /*margin: -110px auto;*/
+    top: 0;
+    left: 0;
     position: relative;
     display: none;
     image-rendering: pixelated;
