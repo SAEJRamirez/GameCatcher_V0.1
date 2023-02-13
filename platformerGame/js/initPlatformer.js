@@ -10,6 +10,7 @@ import {spawnEnemies} from "./spawns/spawnEnemies.js";
 import {ScoreBoard} from "./classes/ScoreBoard.js";
 import {actualFps} from "../../initMain.js";
 import {keys} from "./platformerMain.js";
+import {spawnCoins} from "./spawns/spawnCoins.js";
 
 
 export let player;
@@ -18,6 +19,7 @@ export let background;
 export let camera;
 export let cameraBg;
 export let enemies;
+export let coins;
 export let deathSprites;
 export let scoreBoard;
 export let gravity = 0;
@@ -34,6 +36,7 @@ function initPlayer() {
         spikeDownCollisionBlocks,
         spikeUpCollisionBlocks,
         enemies,
+        coins,
         imageSrc: "../../img/Hero/Idle_right2.png",
         frameRate: 18,
         animationEnd : false,
@@ -121,6 +124,7 @@ export function initPlatformer() {
     }
 
     enemies = [];
+    coins = [];
     deathSprites = [];
     camera = {
         position: {
@@ -170,5 +174,6 @@ export function initPlatformer() {
 
     initPlayer();
     spawnEnemies();
+    spawnCoins();
     initBackground();
 }

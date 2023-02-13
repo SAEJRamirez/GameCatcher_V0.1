@@ -1,5 +1,5 @@
 //Imports
-import {ctx, playerDeath} from "../platformerMain.js"
+import {ctx, playerDeath, score} from "../platformerMain.js"
 import {gravity} from "../initPlatformer.js";
 import {
     collision,
@@ -10,6 +10,7 @@ import {
 import {Sprite} from "./Sprite.js";
 import {killChoompy, killChoompyMax, killVampBat} from "../tools/killEnemies.js";
 import {scoreBoard} from "../initPlatformer.js";
+import {coins} from "../initPlatformer.js";
 
 //Player class
 export class Player extends Sprite {
@@ -303,6 +304,15 @@ export class Player extends Sprite {
                 this.isDead = true
                 playerDeath("enemy", i, enemy)
                 break;
+            }
+        }
+
+        //Collision with Coin
+        for (let i = 0; i < coins.length; i ++) {
+            const coin = coins[i];
+            if (collisionSidesEnemy({object1: this.hitBox, object2: coin})) {
+                coins.splice(i, 1);
+                scoreBoard.score +=10
             }
         }
     }

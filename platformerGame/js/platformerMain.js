@@ -1,6 +1,17 @@
 //Imports
 import {renderCollisionBlocks} from "./tools/renderCollisionBlocks.js"
-import {initPlatformer, camera, cameraBg, enemies, player, background, backgroundMap, deathSprites, scoreBoard} from "./initPlatformer.js";
+import {
+    initPlatformer,
+    camera,
+    cameraBg,
+    enemies,
+    player,
+    background,
+    backgroundMap,
+    deathSprites,
+    scoreBoard,
+    coins
+} from "./initPlatformer.js";
 import {killChoompy} from "./tools/killEnemies.js";
 import {actualFps} from "../../initMain.js";
 import {utils} from "../../utils.js";
@@ -61,12 +72,16 @@ function animate() {
     renderCollisionBlocks();
     player.checkForHorizontalCanvasCollision();
 
-    //Update player
-    player.update();
-
+    coins.forEach((coin) => {
+        coin.update()
+    })
     enemies.forEach((enemy) => {
         enemy.update()
     })
+
+    //Update player
+    player.update();
+
     deathSprites.forEach((death) => {
         death.update()
     })
