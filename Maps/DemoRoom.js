@@ -30,7 +30,7 @@ export const DemoRoom = {
                 },
                 {
                     events: [
-                        { type: "textMessage", text: "Je parle pas aux amateurs sans combattants..."}
+                        {who: "Beth", type: "textMessage", text: "Je parle pas aux amateurs sans combattants..."}
                     ]
                 }
             ],
