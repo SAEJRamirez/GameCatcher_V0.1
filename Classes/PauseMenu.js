@@ -72,31 +72,54 @@ export class PauseMenu {
 
 
         if (pageKey === "root") {
-            return [
 
-                {
-                    label: "Games",
-                    description: "Vos jeux",
-                    handler: () => {
-                        this.keyboardMenu.setOptions( this.getOptions("games"))
+            if (playerState.lineup.length !== 0) {
+                return [
+
+                    {
+                        label: "Games",
+                        description: "Vos jeux",
+                        handler: () => {
+                            this.keyboardMenu.setOptions( this.getOptions("games"))
+                        }
+                    },
+                    {
+                        label: "Save",
+                        description: "Save your progress",
+                        handler: () => {
+                            this.progress.save();
+                            this.close();
+                        }
+                    },
+                    {
+                        label: "Close",
+                        description: "Close the pause menu",
+                        handler: () => {
+                            this.close();
+                        }
                     }
-                },
-                {
-                    label: "Save",
-                    description: "Save your progress",
-                    handler: () => {
-                        this.progress.save();
-                        this.close();
+                ]
+            } else {
+                return [
+
+                    {
+                        label: "Save",
+                        description: "Save your progress",
+                        handler: () => {
+                            this.progress.save();
+                            this.close();
+                        }
+                    },
+                    {
+                        label: "Close",
+                        description: "Close the pause menu",
+                        handler: () => {
+                            this.close();
+                        }
                     }
-                },
-                {
-                    label: "Close",
-                    description: "Close the pause menu",
-                    handler: () => {
-                        this.close();
-                    }
-                }
-            ]
+                ]
+            }
+
         }
 
         //Cas 2: Montrer les options juste pour un combatant (by id)

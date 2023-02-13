@@ -122,6 +122,7 @@ function animate() {
     if (player.position.x >= 1000 && scoreBoard.score >= 10) {
         window.cancelAnimationFrame(reqAnimationFrame)
         utils.endingGame(canvas, figtherPlatformerId)
+        playerState.addFighter(figtherPlatformerId)
         initialGameCatcherMap.isPaused = false
         initialGameCatcherMap.overworld.startGameLoop();
     }
