@@ -49,12 +49,48 @@ body {
     image-rendering: pixelated;
 }
 
-.next-game-canvas {
-    /*margin: -110px auto;*/
-    top: 0;
-    left: 0;
+.next-game-container {
     position: relative;
     display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+}
+
+.next-game-canvas {
+    margin: -110px auto;
     image-rendering: pixelated;
-    z-index: 99;
+}
+
+.menu-end-game {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    top: 25%;
+    left: 40%;
+    z-index: 10;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(164, 132, 101, 0.86);
+}
+
+.menu-end-game h2 {
+    width: 100%;
+}
+
+.menu-end-game p {
+    width: 100%;
+
+}
+
+.menu-end-game button {
+    width: 30%;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
 }

@@ -16,12 +16,14 @@ export let score = 0;
 export let figtherPlatformerId = "";
 let initialGameCatcherMap = null;
 let reqAnimationFrame;
+let menuModal = document.querySelector('.menu-end-game')
 
 
 export function runGame(id, map) {
+
     canvas = document.querySelector('.next-game-canvas')
+    document.querySelector('.next-game-container').style.display = "flex";
     ctx = canvas.getContext('2d')
-    canvas.style.display = "flex"
     figtherPlatformerId = id;
     initialGameCatcherMap = map;
     initPlatformer();
@@ -119,12 +121,16 @@ function animate() {
     }
 
     //Check for win 12550
-    if (player.position.x >= 1000 && scoreBoard.score >= 10) {
+    if (player.position.x >= 1000 && scoreBoard.score >= 20) {
         window.cancelAnimationFrame(reqAnimationFrame)
         utils.endingGame(canvas, figtherPlatformerId)
         playerState.addFighter(figtherPlatformerId)
         initialGameCatcherMap.isPaused = false
         initialGameCatcherMap.overworld.startGameLoop();
+    } else if(player.position.x >= 1300 && scoreBoard.score <= 10) {
+        player.isDead = true
+        player.switchSprite("Idle")
+        menuModal.style.display = 'flex'
     }
 
 }
@@ -177,36 +183,8 @@ export function playerDeath(key, index = 0, enemy = "") {
     }
 }
 
-//Listeners
-window.addEventListener('keydown', (e) => {
-    switch (e.key) {
-        case "d":
-            keys.d.pressed = true
-            break;
-        case "a":
-            keys.a.pressed = true
-            break;
-        case "w":
-            if (!player.isJumping && player.velocity.y === 0 && !player.isDead) {
-                player.isJumping = true
-                if (actualFps <= 55) {
-                    player.velocity.y = -10;
-
-                } else {
-                    player.velocity.y = -18.5;
-
-                }
-            }
-            break;
-    }
-})
-window.addEventListener('keyup', (e) => {
-    switch (e.key) {
-        case "d":
-            keys.d.pressed = false
-            break;
-        case "a":
-            keys.a.pressed = false
-            break;
-    }
+document.getElementById('end-game-restart').addEventListener('click', (e) => {
+    player.isDead = false
+    initPlatformer()
+    menuModal.style.display = "none"
 })

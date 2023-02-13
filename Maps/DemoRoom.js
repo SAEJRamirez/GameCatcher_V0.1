@@ -27,6 +27,11 @@ export const DemoRoom = {
                         { type: "textMessage", text: "Tu m'as défoncé", who:"Beth"},
                         { type: "textMessage", text: "Dégage, vilain !", who:"Beth"}
                     ]
+                },
+                {
+                    events: [
+                        { type: "textMessage", text: "Je parle pas aux amateurs sans combattants..."}
+                    ]
                 }
             ],
         },

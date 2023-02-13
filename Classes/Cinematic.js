@@ -7,13 +7,11 @@ export class Cinematic {
 
 
     runCinematic(mapId) {
-        if (this.storyflags.Intro.complete === false && mapId === "DemoRoom") {
+        if (mapId === "DemoRoom") {
             this.map.startCutscene([
                 {type: "textMessage", text: "Coucou les amis", who: "Narrator"},
 
             ])
-
-            this.storyflags.Intro.complete = true;
         }
     }
 

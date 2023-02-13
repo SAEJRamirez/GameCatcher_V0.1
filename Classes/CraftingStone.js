@@ -20,7 +20,7 @@ export class CraftingStone extends GameObject {
             {
                 required: [this.storyFlag],
                 events: [
-                    {type: "textMessage", text: "You have already used this."}
+                    {who:"ArcadEx" ,type: "textMessage", text: "Félicitation ! Tu as débloqué un nouveau combattant."}
                 ]
             },
             {

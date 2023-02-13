@@ -9,6 +9,7 @@ import {Sprite} from "./classes/Sprite.js";
 import {spawnEnemies} from "./spawns/spawnEnemies.js";
 import {ScoreBoard} from "./classes/ScoreBoard.js";
 import {actualFps} from "../../initMain.js";
+import {keys} from "./platformerMain.js";
 
 
 export let player;
@@ -133,6 +134,39 @@ export function initPlatformer() {
             y: 0
         }
     };
+
+    window.addEventListener('keydown', (e) => {
+        switch (e.key) {
+            case "d":
+                keys.d.pressed = true
+                break;
+            case "a":
+                keys.a.pressed = true
+                break;
+            case "w":
+                if (!player.isJumping && player.velocity.y === 0 && !player.isDead) {
+                    player.isJumping = true
+                    if (actualFps <= 55) {
+                        player.velocity.y = -10;
+
+                    } else {
+                        player.velocity.y = -18.5;
+
+                    }
+                }
+                break;
+        }
+    })
+    window.addEventListener('keyup', (e) => {
+        switch (e.key) {
+            case "d":
+                keys.d.pressed = false
+                break;
+            case "a":
+                keys.a.pressed = false
+                break;
+        }
+    })
 
     initPlayer();
     spawnEnemies();
