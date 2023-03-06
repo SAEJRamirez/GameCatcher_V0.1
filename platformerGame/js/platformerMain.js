@@ -15,6 +15,7 @@ import {
 import {killChoompy} from "./tools/killEnemies.js";
 import {actualFps} from "../../initMain.js";
 import {utils} from "../../utils.js";
+import {audioPlatformer} from "../../audio/platformer/audio.js";
 
 
 //Canvas setup
@@ -37,6 +38,7 @@ export function runGame(id, map) {
     ctx = canvas.getContext('2d')
     figtherPlatformerId = id;
     initialGameCatcherMap = map;
+    audioPlatformer.mapMusic.play()
     initPlatformer();
     animate();
 }
@@ -143,6 +145,7 @@ function animate() {
         playerState.storyFlags = {Intro: {flag: "Intro", complete: true}}
         initialGameCatcherMap.isPaused = false
         initialGameCatcherMap.overworld.startGameLoop();
+        audioPlatformer.mapMusic.stop()
     } else if(player.position.x >= 1300 && scoreBoard.score <= 10) {
         player.isDead = true
         player.switchSprite("Idle")

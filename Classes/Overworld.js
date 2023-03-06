@@ -6,6 +6,7 @@ import {Cinematic} from "./Cinematic.js";
 import {KeyPressListener} from "./KeyPressListener.js";
 import {DirectionInput} from "./DirectionInput.js";
 import {OverworldMaps} from "../Maps/Maps.js";
+import {audioGameCatcher} from '../audio/gameCatcher/audio.js'
 
 
 export class Overworld {
@@ -82,6 +83,7 @@ export class Overworld {
   this.map = new OverworldMap(mapConfig);
   this.map.overworld = this;
   this.map.mountObjects();
+  audioGameCatcher.mapMusic.play()
 
   if (heroInitialState) {
     const {hero} = this.map.gameObjects;

@@ -1,4 +1,5 @@
 import {runGame} from "../platformerGame/js/platformerMain.js";
+import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
 
 export class ArcadeStation {
     constructor(fighters, map) {
@@ -18,6 +19,7 @@ export class ArcadeStation {
 
     runPlatformer(id) {
         this.map.isPaused = true;
+        audioGameCatcher.mapMusic.stop()
         runGame(id, this.map)
     }
 }
