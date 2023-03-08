@@ -16,7 +16,8 @@ export const HeroHouseMap = {
         },
         kitchen: {
             type: "Person",
-            x: utils.withGrid(3),
+            src: "",
+            x: utils.withGrid(4),
             y: utils.withGrid(2),
             talking: [
                 {
