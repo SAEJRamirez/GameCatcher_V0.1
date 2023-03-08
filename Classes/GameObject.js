@@ -11,6 +11,7 @@ export class GameObject {
     this.sprite = new Sprite({
       gameObject: this,
       src: config.src || "/img/personnages/personnes/me.png",
+      useShadow: config.useShadow
     });
 
     //These happen once on map startup.

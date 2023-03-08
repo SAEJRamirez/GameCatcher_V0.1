@@ -1,9 +1,9 @@
 export class Progress {
     constructor() {
-        this.mapId = "DemoRoom";
+        this.mapId = "CinematicIntroTv";
         this.startingHeroX = 0;
         this.startingHeroY = 0;
-        this.startingHeroDirection = "down";
+        this.startingHeroDirection = "up";
         this.saveFileKey = "GameCatcher_SaveFile1";
     }
 

@@ -15,14 +15,13 @@ export class TextMessage {
         this.element.classList.add("TextMessage");
 
         this.element.innerHTML = (`
-              <p class="TextMessage_p"></p>
-              <button class="TextMessage_button">Next</button>
+              <p class="TextMessage_p"><b class="temp">${this.who}: </b></p>
+              <button class="TextMessage_button">Suivant</button>
             `)
-
         //Initialiser l'effet machine à écrire
         this.revealingText = new RevealingText({
             element: this.element.querySelector(".TextMessage_p"),
-            text: this.who + ": "+ this.text,
+            text: this.text,
         })
 
         this.element.querySelector("button").addEventListener("click", () => {

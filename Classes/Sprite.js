@@ -12,7 +12,7 @@ export class Sprite {
 
     //Shadow
     this.shadow = new Image();
-    this.useShadow = true; //config.useShadow || false
+    this.useShadow = config.useShadow || false
     if (this.useShadow) {
       this.shadow.src = "/img/personnages/shadow.png";
     }

@@ -1,3 +1,5 @@
+import {cinematicScripts} from "../cinematicScripts/CinematicScripts.js";
+
 export class Cinematic {
 
     constructor(map) {
@@ -7,12 +9,12 @@ export class Cinematic {
 
 
     runCinematic(mapId) {
-        if (mapId === "DemoRoom") {
-            this.map.startCutscene([
-                {type: "textMessage", text: "Coucou les amis", who: "Narrator"},
 
-            ])
-        }
+        cinematicScripts.forEach(cinematic => {
+            if (cinematic.id === mapId) {
+                this.map.startCutscene(cinematic.script)
+            }
+        })
     }
 
 }
