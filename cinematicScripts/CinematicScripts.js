@@ -18,7 +18,7 @@ export let cinematicScripts = [
             },
             {
                 type: "textMessage",
-                text: "Et oui en effet Marc-Antoin, je me trouve devant le studio GamersForGames...",
+                text: "Et oui en effet Marc-Antoine, je me trouve devant le studio GamesForGamers...",
                 who: "Tv"
             },
             {
@@ -50,4 +50,44 @@ export let cinematicScripts = [
             }
         ]
     },
+    {
+        id: "HeroHouseMap",
+        script: [
+            {
+                type: "textMessage",
+                text: "Bienvenue dans GameCatcher, Pseudo ! Comme tu l'as compris, la situation est catastrophique.",
+                who: "La voix"
+            },
+            {
+                type: "textMessage",
+                text: "Tous les jeux vidéos ont disparus. Il est de ton devoir de les retrouver et de résoudre le mystère " +
+                    "de leur disparition.",
+                who: "La voix"
+            },
+            {
+                type: "textMessage",
+                text: "Le streamer mystérieux t'as conseillé de te rendre au nord de la ville.",
+                who: "La voix"
+            },
+            {
+                type: "textMessage",
+                text: "Avec sa cartouche, tu pourras jouer au seul jeu restant dans le monde.",
+                who: "La voix"
+            },
+            {
+                type: "textMessage",
+                text: "Appuie sur les touches W / A / S / D de ton clavier pour te déplacer, ou sur les touches fléchées. ",
+                who: "La voix"
+            },
+            {
+                type: "textMessage",
+                text: "Appuie sur la touche ENTER pour interagir avec un objet ou une personne. Bonne chance, Pseudo...",
+                who: "La voix"
+            },
+            {
+                type: "addStoryFlag",
+                flag: "INTRO_DONE"
+            }
+        ]
+    }
 ]

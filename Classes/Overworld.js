@@ -49,11 +49,12 @@ export class Overworld {
       
       if (!this.map.isPaused) {
         requestAnimationFrame(() => {
-          step();   
+          step();
         })
       }
     }
     step();
+
  }
 
  bindActionInput() {
