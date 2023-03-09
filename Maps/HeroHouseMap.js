@@ -2,8 +2,8 @@ import {utils} from "../utils.js"
 
 export const HeroHouseMap = {
     id: "HeroHouseMap",
-    lowerSrc: "/img/cartes/heroHouse.png",
-    upperSrc: "/img/cartes/heroHouseUpper.png",
+    lowerSrc: "/img/cartes/HeroHouseMap.png",
+    upperSrc: "/img/cartes/HeroHouseUpper.png",
     configObjects: {
         hero: {
             type: "Person",
@@ -12,7 +12,7 @@ export const HeroHouseMap = {
             x: utils.withGrid(6),
             y: utils.withGrid(8),
             direction: "up",
-            useShadow: true
+            useShadow: false
         },
         kitchenLeft: {
             type: "Person",
@@ -225,25 +225,18 @@ export const HeroHouseMap = {
 
     },
 
-
     cutsceneSpaces: {
         [utils.asGridCoord(10,13)] : [
             {
                 events: [
                     {
                         type: "changeMap",
-                        map: "CvMap",
-                        x: utils.withGrid(18),
-                        y: utils.withGrid(20),
+                        map: "TownNoBridgeMap",
+                        x: utils.withGrid(32),
+                        y: utils.withGrid(33),
                         direction: "down"
                     },
                 ],
-                [utils.asGridCoord(3,2)]: [
-                    {
-
-                    }
-
-                ]
             }
         ]
     },

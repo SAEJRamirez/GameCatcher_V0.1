@@ -52,6 +52,7 @@ export let cinematicScripts = [
     },
     {
         id: "HeroHouseMap",
+        done: false,
         script: [
             {
                 type: "textMessage",

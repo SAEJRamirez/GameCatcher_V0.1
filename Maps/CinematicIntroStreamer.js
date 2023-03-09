@@ -2,8 +2,8 @@ import {utils} from "../utils.js"
 
 export const CinematicIntroStreamer = {
     id: "CinematicIntroStreamer",
-    lowerSrc: "/img/cartes/heroHouse.png",
-    upperSrc: "/img/cartes/heroHouseUpper.png",
+    lowerSrc: "/img/cartes/HeroHouseMap.png",
+    upperSrc: "/img/cartes/HeroHouseUpper.png",
     configObjects: {
         hero: {
             type: "Person",

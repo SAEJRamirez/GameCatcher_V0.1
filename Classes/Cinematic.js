@@ -11,8 +11,9 @@ export class Cinematic {
     runCinematic(mapId) {
 
         cinematicScripts.forEach(cinematic => {
-            if (cinematic.id === mapId) {
+            if (cinematic.id === mapId && !cinematic.done) {
                 this.map.startCutscene(cinematic.script)
+                cinematic.done = true
             }
         })
     }

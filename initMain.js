@@ -17,7 +17,6 @@ function testFps() {
             let fps = Math.round((frames * 1000))
             prevTime = time;
             frames = 0;
-            console.log(fps / 1000)
             messageFps.textContent = `Testing your FPS... Please wait... (${fps / 1000})`
             actualFps = fps / 1000;
             return actualFps
@@ -32,7 +31,6 @@ testFps();
 setTimeout(() => {
     gameContainer.style.display = "block"
     setTest = true
-    console.log(actualFps)
     messageFps.remove()
     startGameCatcher()
 }, 2000)

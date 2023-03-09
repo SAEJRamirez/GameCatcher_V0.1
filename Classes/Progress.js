@@ -1,6 +1,6 @@
 export class Progress {
     constructor() {
-        this.mapId = "HeroHouseMap"; //First = CinematicIntroTv
+        this.mapId = "TownNoBridgeMap"; //First = CinematicIntroTv
         this.startingHeroX = 0;
         this.startingHeroY = 0;
         this.startingHeroDirection = "up";
