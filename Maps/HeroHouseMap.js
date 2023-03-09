@@ -14,7 +14,20 @@ export const HeroHouseMap = {
             direction: "up",
             useShadow: true
         },
-        kitchen: {
+        kitchenLeft: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(3),
+            y: utils.withGrid(2),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Un évier.", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        knife: {
             type: "Person",
             src: "",
             x: utils.withGrid(4),
@@ -22,12 +35,196 @@ export const HeroHouseMap = {
             talking: [
                 {
                     events: [
-                        {type: "textMessage", text: "La cuisine de Pseudo.", who: "Info"}
+                        {type: "textMessage", text: "Un gros couteau qui coupe.", who: "Info"}
                     ]
                 }
             ]
-        }
+        },
+        kitchenRight: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(5),
+            y: utils.withGrid(2),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "C'est chaud, ça brûle...", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        vine: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(8),
+            y: utils.withGrid(2),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "C'est pas de la piquette !", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        chestLeft: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(10),
+            y: utils.withGrid(2),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "T'as cru qu'on était dans Zelda ?", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        chestRight: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(11),
+            y: utils.withGrid(2),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "T'as cru qu'on était dans Zelda ?", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        tv: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(3),
+            y: utils.withGrid(6),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Modèle ultra moderne de Tv", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        coffee: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(3),
+            y: utils.withGrid(8),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Un café froid...avec 3 sucres...", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        couch: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(5),
+            y: utils.withGrid(8),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Il a l'air confortable.", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        tableMiddleLeft: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(7),
+            y: utils.withGrid(8),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "La nappe de grand-mère...", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        tableMiddleLeftDown: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(7),
+            y: utils.withGrid(9),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "La nappe de grand-mère...", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        tableMiddleUp: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(8),
+            y: utils.withGrid(8),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Une fleur dans un vase. C'est beau.", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        tableMiddleDown: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(8),
+            y: utils.withGrid(9),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Une fleur dans un vase. C'est beau.", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        tableRightUp: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(9),
+            y: utils.withGrid(8),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Le bois de cette table est solide !", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        tableRightDown: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(9),
+            y: utils.withGrid(9),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Il y a une tâche sur la table.", who: "Info"}
+                    ]
+                }
+            ]
+        },
+        pouf: {
+            type: "Person",
+            src: "",
+            x: utils.withGrid(3),
+            y: utils.withGrid(10),
+            talking: [
+                {
+                    events: [
+                        {type: "textMessage", text: "Pratique pour les reposer les pieds", who: "Info"}
+                    ]
+                }
+            ]
+        },
+
     },
+
 
     cutsceneSpaces: {
         [utils.asGridCoord(10,13)] : [
