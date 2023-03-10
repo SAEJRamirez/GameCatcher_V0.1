@@ -7,6 +7,7 @@ export const DemoRoom = {
     configObjects: {
         hero: {
             type: "Person",
+            src:"/img/personnages/personnes/me.png",
             isPlayerControlled: true,
             x: utils.withGrid(7),
             y: utils.withGrid(7)
