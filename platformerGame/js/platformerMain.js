@@ -142,7 +142,6 @@ function animate() {
         window.cancelAnimationFrame(reqAnimationFrame)
         utils.endingGame(canvas, figtherPlatformerId)
         playerState.addFighter(figtherPlatformerId)
-        playerState.storyFlags = {Intro: {flag: "Intro", complete: true}}
         initialGameCatcherMap.isPaused = false
         initialGameCatcherMap.overworld.startGameLoop();
         audioPlatformer.mapMusic.stop()
@@ -202,7 +201,7 @@ export function playerDeath(key, index = 0, enemy = "") {
     }
 }
 
-document.getElementById('end-game-restart').addEventListener('click', (e) => {
+document.getElementById('end-game-restart').addEventListener('click', () => {
     player.isDead = false
     initPlatformer()
     menuModal.style.display = "none"

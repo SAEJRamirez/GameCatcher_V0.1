@@ -1,5 +1,5 @@
 import {Person} from "./Person.js";
-import {CraftingStone} from "./CraftingStone.js";
+import {ArcadeStation} from "./ArcadeStation.js";
 import {OverworldEvent} from "./OverworldEvent.js";
 import {utils} from "../utils.js";
 
@@ -62,8 +62,8 @@ export class OverworldMap {
       if (object.type === "Person") {
         instance = new Person(object);
       }
-      if (object.type === "CraftingStone") {
-        instance = new CraftingStone(object);
+      if (object.type === "ArcadeStation") {
+        instance = new ArcadeStation(object);
       }
       this.gameObjects[key] = instance;
       this.gameObjects[key].id = key;

@@ -54,7 +54,6 @@ export class Overworld {
       }
     }
     step();
-
  }
 
  bindActionInput() {

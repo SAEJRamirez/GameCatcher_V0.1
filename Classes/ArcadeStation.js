@@ -1,25 +1,41 @@
-import {runGame} from "../platformerGame/js/platformerMain.js";
-import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
+import {GameObject} from "./GameObject.js";
+import {Sprite} from "./Sprite.js";
 
-export class ArcadeStation {
-    constructor(fighters, map) {
-        this.fighters = fighters;
-        this.map = map
+export class ArcadeStation extends GameObject {
+    constructor(config) {
+        super(config);
+        this.sprite = new Sprite({
+            gameObject: this,
+            src: "/img/personnages/arcade_station.png",
+            animations: {
+                "unused-down": [ [1,0] ],
+                "used-down": [[1,0]]
+            },
+            currentAnimation: "unused-down"
+        });
+        this.storyFlag = config.storyFlag;
+        this.playable = config.playable
+        this.fighters = config.fighters
+
+        this.talking = [
+            {
+                required: [this.storyFlag],
+                events: [
+                    {who:"ArcadEx" ,type: "textMessage", text: "Félicitation ! Tu as débloqué un nouveau combattant."}
+                ]
+            },
+            {
+                required: [this.playable],
+                events: [
+                    {type: "textMessage", text: "Bienvenue ! Envie de jouer avec moi ?", who: "ArcadEx"},
+                    {type: "craftingMenu", fighters: this.fighters},
+                    {type: "addStoryFlag", flag: this.storyFlag}
+                ]
+            },
+        ]
     }
 
-    menuRunNewGame(fighterId) {
-        //this.map.isPaused = true
-
-        switch (fighterId) {
-            case "s001":
-                this.runPlatformer(fighterId)
-                break;
-        }
-    }
-
-    runPlatformer(id) {
-        this.map.isPaused = true;
-        audioGameCatcher.mapMusic.stop()
-        runGame(id, this.map)
+    update() {
+        this.sprite.currentAnimation = playerState.storyFlags[this.storyFlag] ? "used-down" : "unused-down"
     }
 }
