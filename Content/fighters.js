@@ -8,24 +8,24 @@ export const FighterTypes = {
 
 export const Fighters = {
     "s001": {
-        name: "Maria",
-        game: "Hyper Maria Siss",
+        name: "Little Red",
+        game: "Little Red VS Mushrooms",
         gameId: "hms1",
-        description: "La soeur cachée de Mario",
+        description: "Petit chaperon rouge, veut du sang...",
         type: FighterTypes.normal,
         src: "",
         icon: "",
         actions: [ "damage1", "healDot" ],
     },
     "s002": {
-        name: "Luigia",
-        game: "Hyper Maria Siss",
+        name: "ChoompyMax",
+        game: "Little Red VS Mushrooms",
         gameId: "hms1",
-        description: "La soeur cachée de Luigi",
+        description: "Gare aux champignons géants",
         type: FighterTypes.normal,
         src: "",
         icon: "/img/icones/chill.png",
-        actions: [ "damage1" ],
+        actions: [ "damage1", "bananaSlip" ],
     },
     "s003": {
         name: "Bind",

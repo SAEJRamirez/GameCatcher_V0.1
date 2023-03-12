@@ -6,13 +6,8 @@ export const Enemies = {
         src: "/img/personnages/personnes/erio.png",
         fighters: {
             "a": {
-                fighterId: "s001",
-                maxHp: 50,
-                level: 1,
-            },
-            "b": {
                 fighterId: "s002",
-                maxHp: 50,
+                maxHp: 10,
                 level: 1,
             },
         }
