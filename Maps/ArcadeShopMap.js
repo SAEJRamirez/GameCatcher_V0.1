@@ -95,6 +95,17 @@ export const ArcadeShopMap = {
             playable: "ARCADE_BOSS_CHAT1"
         }
     },
+    cutsceneSpaces: {
+        required: ["LITTLE_RED_PLAYED"],
+        [utils.asGridCoord(8, 7)]: [
+            {
+                events: [
+                    {type: "walk", direction: "right", who: "npcBadGuy"},
+                    { type: "textMessage", text: "Hey connard !", who: "DouxVoleur"},
+                ]
+            }
+        ],
+    },
 
     walls: {
         //Upper walls

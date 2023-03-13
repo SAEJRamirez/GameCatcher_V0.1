@@ -9,7 +9,7 @@ export class OverworldMap {
     this.gameObjects = {}; // Live objects are in here
     this.configObjects = config.configObjects; // Configuration content
 
-    
+
     this.cutsceneSpaces = config.cutsceneSpaces || {};
     this.walls = config.walls || {};
 
@@ -25,19 +25,19 @@ export class OverworldMap {
 
   drawLowerImage(ctx, cameraPerson) {
     ctx.drawImage(
-      this.lowerImage, 
-      utils.withGrid(10.5) - cameraPerson.x, 
+      this.lowerImage,
+      utils.withGrid(10.5) - cameraPerson.x,
       utils.withGrid(6) - cameraPerson.y
       )
   }
 
   drawUpperImage(ctx, cameraPerson) {
     ctx.drawImage(
-      this.upperImage, 
-      utils.withGrid(10.5) - cameraPerson.x, 
+      this.upperImage,
+      utils.withGrid(10.5) - cameraPerson.x,
       utils.withGrid(6) - cameraPerson.y
     )
-  } 
+  }
 
   isSpaceTaken(currentX, currentY, direction) {
     const {x,y} = utils.nextPosition(currentX, currentY, direction);
@@ -108,7 +108,14 @@ export class OverworldMap {
     const hero = this.gameObjects["hero"];
     const match = this.cutsceneSpaces[ `${hero.x},${hero.y}` ];
     if (!this.isCutscenePlaying && match) {
-      this.startCutscene( match[0].events )
+      if (this.cutsceneSpaces.required !== undefined) {
+        if (this.cutsceneSpaces.required !== [] && this.cutsceneSpaces.required[0] in playerState.storyFlags) {
+          this.startCutscene( match[0].events )
+          this.cutsceneSpaces.required = []
+        }
+      } else {
+        this.startCutscene( match[0].events )
+      }
     }
   }
 }
