@@ -22,17 +22,10 @@ export const ArcadeShopMap = {
             direction: "down",
             talking: [
                 {
-                    required: ["DEFEATED_ERIO"],
+                    required: ["DEFEATED_DOUXVOLEUR"],
                     events: [
                         { type: "textMessage", text: "Suite HISTOIRE", who: "Patron"},
                     ]
-                },
-                {
-                    required: ["LITTLE_RED_PLAYED"],
-                    events: [
-                        { type: "textMessage", text: "Le mec là-bas te regarde super chelou... parle-lui nan ? C'est hyper mal saint..." , who: "Patron"},
-                    ],
-
                 },
                 {
                     required: ["ARCADE_BOSS_CHAT1"],
@@ -60,24 +53,10 @@ export const ArcadeShopMap = {
             direction: "right",
             talking: [
                 {
-                    required: ["DEFEATED_ERIO"],
+                    required: ["DEFEATED_DOUXVOLEUR"],
                     events: [
                         { type: "textMessage", text: "Notre organisation est surpuissante ! On se vengera ! Jamais on vous rendra les jeux !", who: "DouxVoleur"},
                     ]
-                },
-                {
-
-                    required: ["LITTLE_RED_PLAYED"],
-                    events: [
-                        { type: "textMessage", text: "Alors comme ça Monsieur essaie de récupérer tous les jeux hein ?", who: "DouxVoleur"},
-                        { type: "textMessage", text: "Malheureusement pour toi mon petit, je vais pas pouvoir te laisser faire.", who: "DouxVoleur"},
-                        { type: "textMessage", text: "Je vais te défoncer, mon lapin...", who: "DouxVoleur"},
-                        { type: "battle", enemyId: "erio"},
-                        { type: "addStoryFlag", flag: "DEFEATED_ERIO" },
-                        { type: "textMessage", text: "Tu crois que tu vas t'en tirer comme ça ? Hahahaha !", who: "DouxVoleur"},
-                        { type: "textMessage", text: "Notre organisation est surpuissante ! On se vengera ! Jamais on vous rendra les jeux !", who: "DouxVoleur"},
-                    ]
-
                 },
                 {
                     events: [
@@ -97,11 +76,28 @@ export const ArcadeShopMap = {
     },
     cutsceneSpaces: {
         required: ["LITTLE_RED_PLAYED"],
-        [utils.asGridCoord(8, 7)]: [
+        [utils.asGridCoord(8, 9)]: [
             {
                 events: [
-                    {type: "walk", direction: "right", who: "npcBadGuy"},
                     { type: "textMessage", text: "Hey connard !", who: "DouxVoleur"},
+                    {type: "walk", direction: "right", who: "npcBadGuy"},
+                    {type: "walk", direction: "right", who: "npcBadGuy"},
+                    {type: "walk", direction: "right", who: "npcBadGuy"},
+                    {type: "walk", direction: "down", who: "npcBadGuy"},
+                    {type: "stand", direction: "up", who: "hero"},
+                    { type: "textMessage", text: "Alors comme ça Monsieur essaie de récupérer tous les jeux hein ?", who: "DouxVoleur"},
+                    { type: "textMessage", text: "Malheureusement pour toi mon petit, je vais pas pouvoir te laisser faire.", who: "DouxVoleur"},
+                    { type: "textMessage", text: "Je vais te défoncer, mon lapin...", who: "DouxVoleur"},
+                    { type: "battle", enemyId: "DouxVoleur"},
+                    { type: "addStoryFlag", flag: "DEFEATED_DOUXVOLEUR" },
+                    { type: "textMessage", text: "Tu crois que tu vas t'en tirer comme ça ? Hahahaha !", who: "DouxVoleur"},
+                    { type: "textMessage", text: "Notre organisation est surpuissante ! On se vengera ! Jamais on vous rendra les jeux !", who: "DouxVoleur"},                        { type: "walk", direction: "up", who: "npcBadGuy"},
+                    { type: "walk", direction: "left", who: "npcBadGuy"},
+                    { type: "walk", direction: "left", who: "npcBadGuy"},
+                    { type: "walk", direction: "left", who: "npcBadGuy"},
+                    { type: "walk", direction: "left", who: "npcBadGuy"},
+                    { type: "stand", direction: "right", who: "npcBadGuy"},
+                    { type: "textMessage", text: "Hey pssst ! Venez, j'ai quelque chose à vous dire...", who: "Patron"},
                 ]
             }
         ],

@@ -1,8 +1,8 @@
 //TODO ici on définit les enemis, leurs sprites, combatants, niveaux etc...
 
 export const Enemies = {
-    "erio": {
-        name: "Erio",
+    "DouxVoleur": {
+        name: "DouxVoleur",
         src: "/img/personnages/personnes/erio.png",
         fighters: {
             "a": {
