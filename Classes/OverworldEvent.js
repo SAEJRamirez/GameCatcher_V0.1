@@ -5,6 +5,7 @@ import {SceneTransition} from "./SceneTransition.js";
 import {PauseMenu} from "./PauseMenu.js";
 import {OverworldMaps} from "../Maps/Maps.js";
 import {Enemies} from "../Content/enemies.js";
+import {utils} from "../utils.js";
 
 export class OverworldEvent {
   constructor({ map, event}) {

@@ -8,7 +8,6 @@ import {DirectionInput} from "./DirectionInput.js";
 import {OverworldMaps} from "../Maps/Maps.js";
 import {audioGameCatcher} from '../audio/gameCatcher/audio.js'
 
-
 export class Overworld {
  constructor(config) {
    this.element = config.element;

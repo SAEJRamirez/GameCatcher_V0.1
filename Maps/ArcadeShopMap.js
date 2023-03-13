@@ -43,7 +43,7 @@ export const ArcadeShopMap = {
                 },
                 {
                     events: [
-                        { type: "textMessage", text: "Bonjour. Soit vous avez pas la télé, soit vous êtes débile...", who: "Patron"},
+                        { type: "textMessage", text: "Bonjour. Soit vous avez pas la télé, soit vous êtes débile...", who: "Patron", faceHero: "npcManager"},
                         { type: "textMessage", text: "... il n'y a plus un seul jeu dans le monde et vous venez ici...", who: "Patron"},
                         { type: "textMessage", text: "Attendez ! Vous avez un jeu !? Génial ! Mettez le dans la borne d'arcade, vite !", who: "Patron"},
                         { type: "addStoryFlag", flag: "ARCADE_BOSS_CHAT1"}
