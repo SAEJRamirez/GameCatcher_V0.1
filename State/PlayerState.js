@@ -12,27 +12,7 @@ class PlayerState {
                 maxXp: 100,
                 level: 1,
                 status: null,
-            },
-            "f2": {
-                fighterId: "s002",
-                gameId: "hms1",
-                hp: 50,
-                maxHp: 50,
-                xp: 0,
-                maxXp: 100,
-                level: 1,
-                status: null,
-            },
-            "f3": {
-                fighterId: "s003",
-                gameId: "tlz1",
-                hp: 50,
-                maxHp: 50,
-                xp: 0,
-                maxXp: 100,
-                level: 1,
-                status: null,
-            },
+            }
         }
         this.lineup = [];
         this.items = [

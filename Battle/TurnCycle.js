@@ -59,7 +59,7 @@ export class TurnCycle {
         const targetDead = submission.target.hp <= 0;
         if (targetDead) {
             await this.onNewEvent({
-                type: "textMessage", text: `${submission.target.name} is ruined!`
+                type: "textMessage", text: `${submission.target.name} est KO!`
             })
 
             if (submission.target.team === "enemy") {
@@ -69,7 +69,7 @@ export class TurnCycle {
 
                 await this.onNewEvent({
                     type: "textMessage",
-                    text: `Gained ${xp} XP!`
+                    text: `Vous gagnez ${xp} XP!`
                 })
                 await this.onNewEvent({
                     type: "giveXp",
@@ -84,7 +84,7 @@ export class TurnCycle {
         if (winner) {
             await this.onNewEvent({
                 type: "textMessage",
-                text: "Winner!"
+                text: "Vous avez gagné!"
             })
             this.onWinner(winner);
             return;
@@ -102,7 +102,7 @@ export class TurnCycle {
             })
             await this.onNewEvent({
                 type: "textMessage",
-                text: `${replacement.name} appears!`
+                text: `${replacement.name} apparaît!`
             })
         }
 
@@ -150,7 +150,7 @@ export class TurnCycle {
     async init() {
         await this.onNewEvent({
             type: "textMessage",
-            text: `${this.battle.enemy.name} wants to throw down!`,
+            text: `${this.battle.enemy.name} veut vous démonter!`,
         })
 
         //Démarre le premier tour

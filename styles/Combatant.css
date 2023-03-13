@@ -22,16 +22,16 @@
 }
 .Combatant[data-team="enemy"] {
     top: 28px;
-    right: 77px;
+    right: 57px;
 }
 
 .Combatant_character_crop {
     position: absolute;
-    bottom: 1px;
-    left:3px;
-    width: 22px;
-    height: 12px;
-    overflow:hidden;
+    bottom: -11px;
+    left: -7px;
+    width: 35px;
+    height: 32px;
+    transform: scale(0.20);
 }
 .Combatant_character {
     display:block;
@@ -115,20 +115,21 @@
 }
 
 .Fighter {
-    width: 28px;
-    height: 26px;
+    width: 16px;
+    height: 19px;
     position: absolute;
-    transform: scale(2);
+    transform: scale(1);
     transition: opacity 0.4s, transform 0.4s;
-    background: url(/img/personnages/combatants/pizza-shadow.png) no-repeat no-repeat;
+    background: url(/img/personnages/combatants/shadow.png) no-repeat no-repeat;
 }
 .Fighter[data-team="player"] {
     bottom: 73px;
     left: 51px;
 }
 .Fighter[data-team="enemy"] {
-    top: 47px;
-    right: 100px;
+    top: 67px;
+    right: 60px;
+    width: 22px;
 }
 .Fighter[data-active="false"] {
     opacity:0;

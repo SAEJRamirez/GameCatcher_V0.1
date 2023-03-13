@@ -1,3 +1,5 @@
+import {utils} from "../utils.js";
+
 export class Combatant {
     constructor(config, battle) {
         Object.keys(config).forEach(key => {
@@ -88,9 +90,10 @@ export class Combatant {
 
     //TODO voir quels status on a besoin (empoisonné etc...)
     getReplacedEvents(originalEvents) {
-        if (this.status?.type === "glisee" && utils.randomFromArray([true, false, false])) {
+        if (this.status?.type === "empoisonné" && utils.randomFromArray([false, true, false])) {
             return [
-                { type: "textMessage", text: `${this.name} glisse sur une peau de banane!` },
+                { type: "textMessage", text: `${this.name} est blessé par le poison !` },
+                { type: "stateChange", recover: -10, onCaster: true },
             ]
         }
         return originalEvents;
@@ -102,6 +105,12 @@ export class Combatant {
             return [
                 { type: "textMessage", text: "MMMh c'est bon!" },
                 { type: "stateChange", recover: 5, onCaster: true }
+            ]
+        }
+        if (this.status?.type === "empoisonné") {
+            return [
+                { type: "textMessage", text: `${this.name} est blessé par le poison !` },
+                { type: "stateChange", recover: -10, onCaster: true },
             ]
         }
         return [];

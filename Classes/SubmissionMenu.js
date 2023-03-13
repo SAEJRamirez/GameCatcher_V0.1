@@ -28,8 +28,8 @@ export class SubmissionMenu {
 
     getPages() {
         const backOption = {
-            label: "Go Back",
-            description: "Return to previous page",
+            label: "Retour",
+            description: "Retour à la page précédente",
             handler: () => {
                 this.keyboardMenu.setOptions(this.getPages().root)
             }
@@ -38,24 +38,24 @@ export class SubmissionMenu {
         return {
             root: [
                 {
-                    label: "Attack",
-                    description: "Choose an attack",
+                    label: "Attaque",
+                    description: "Choisissez une attaque",
                     handler: () => {
                         //Faire quelque chose quand l'option est choisie
                         this.keyboardMenu.setOptions( this.getPages().attacks )
                     }
                 },
                 {
-                    label: "Items",
-                    description: "Choose an item",
+                    label: "Objets",
+                    description: "Choisissez un objet",
                     handler: () => {
                         //Aller à la page d'objets
                         this.keyboardMenu.setOptions( this.getPages().items )
                     }
                 },
                 {
-                    label: "Swap",
-                    description: "Change to another fighter",
+                    label: "Switch",
+                    description: "Choisir un autre combatant",
                     handler: () => {
                         //Voir les combatants dispos
                         this.keyboardMenu.setOptions( this.getPages().replacements )

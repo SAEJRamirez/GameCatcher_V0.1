@@ -77,23 +77,23 @@ export class PauseMenu {
                 return [
 
                     {
-                        label: "Games",
+                        label: "Jeux",
                         description: "Vos jeux",
                         handler: () => {
                             this.keyboardMenu.setOptions( this.getOptions("games"))
                         }
                     },
                     {
-                        label: "Save",
-                        description: "Save your progress",
+                        label: "Sauvegarder",
+                        description: "Sauvegardez votre progression",
                         handler: () => {
                             this.progress.save();
                             this.close();
                         }
                     },
                     {
-                        label: "Close",
-                        description: "Close the pause menu",
+                        label: "Fermer",
+                        description: "Fermer le menu Pause",
                         handler: () => {
                             this.close();
                         }
@@ -103,16 +103,16 @@ export class PauseMenu {
                 return [
 
                     {
-                        label: "Save",
-                        description: "Save your progress",
+                        label: "Sauvegarder",
+                        description: "Sauvegardez votre progression",
                         handler: () => {
                             this.progress.save();
                             this.close();
                         }
                     },
                     {
-                        label: "Close",
-                        description: "Close the pause menu",
+                        label: "Fermer",
+                        description: "Fermer le menu Pause",
                         handler: () => {
                             this.close();
                         }
@@ -129,7 +129,7 @@ export class PauseMenu {
             const {fighterId} = playerState.fighters[id];
             const base = Fighters[fighterId];
             return {
-                label: `Swap for ${base.name}`,
+                label: `Switch avec ${base.name}`,
                 description: base.description,
                 handler: () => {
                     playerState.swapLineup(pageKey, id);
@@ -140,16 +140,16 @@ export class PauseMenu {
         return [
             ...unequipped,
             {
-                label: "Move to front",
-                description: "Move this fighter to the front of the list",
+                label: "Mettre en tête",
+                description: "Faire combattre ce personnage en premier",
                 handler: () => {
                     playerState.moveToFront(pageKey);
                     this.keyboardMenu.setOptions( this.getOptions("root") );
                 }
             },
             {
-                label: "Back",
-                description: "Back to root menu",
+                label: "Retour",
+                description: "Retour au menu principal",
                 handler: () => {
                     this.keyboardMenu.setOptions( this.getOptions("root") );
                 }
