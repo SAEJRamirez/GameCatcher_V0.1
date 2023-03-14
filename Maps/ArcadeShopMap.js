@@ -24,7 +24,12 @@ export const ArcadeShopMap = {
                 {
                     required: ["DEFEATED_DOUXVOLEUR"],
                     events: [
-                        { type: "textMessage", text: "Suite HISTOIRE", who: "Patron"},
+                        { type: "textMessage", text: "Ce mec fait partie d'une organisation chelou...", who: "Patron"},
+                        { type: "textMessage", text: "...c'est eux qui ont volé les jeux, je sais pas comment ils ont fait.", who: "Patron"},
+                        { type: "textMessage", text: "D'après ce que j'ai vu, tu es capable de leur tenir tête. Il faut que tu les défonces tous ces batards !", who: "Patron"},
+                        { type: "textMessage", text: "J'ai entendu dire qu'un des responsable de cette organisation avait prit ces quartiers à l'université...", who: "Patron"},
+                        { type: "textMessage", text: "Peut-être que tu pourrais déloger ce connard ?", who: "Patron"},
+                        { type: "textMessage", text: "Je compte sur toi... mon chiffre d'affaire dépend du retour des jeux.", who: "Patron"},
                     ]
                 },
                 {
