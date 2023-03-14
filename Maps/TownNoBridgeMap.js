@@ -93,9 +93,9 @@ export const TownNoBridgeMap = {
                 events: [
                     {
                         type: "changeMap",
-                        map: "DemoRoom",
-                        x: utils.withGrid(7),
-                        y: utils.withGrid(7),
+                        map: "ArcadeShopMap",
+                        x: utils.withGrid(10),
+                        y: utils.withGrid(12),
                         direction: "up"
                     },
                 ]

@@ -2,6 +2,7 @@ import {Person} from "./Person.js";
 import {ArcadeStation} from "./ArcadeStation.js";
 import {OverworldEvent} from "./OverworldEvent.js";
 import {utils} from "../utils.js";
+let alreadyPlayed = false
 
 export class OverworldMap {
   constructor(config) {
@@ -107,15 +108,19 @@ export class OverworldMap {
   checkForFootstepCutscene() {
     const hero = this.gameObjects["hero"];
     const match = this.cutsceneSpaces[ `${hero.x},${hero.y}` ];
-    if (!this.isCutscenePlaying && match) {
-      if (this.cutsceneSpaces.required !== undefined) {
-        if (this.cutsceneSpaces.required !== [] && this.cutsceneSpaces.required[0] in playerState.storyFlags) {
-          this.startCutscene( match[0].events )
-          this.cutsceneSpaces.required = []
+
+    Object.entries(this.cutsceneSpaces).forEach(([key, val]) => {
+      if (!this.isCutscenePlaying && match) {
+        if (match === val) {
+          if (!alreadyPlayed && val[0].hasOwnProperty('required') && val[0].required in playerState.storyFlags) {
+            this.startCutscene( match[0].events )
+            alreadyPlayed = true
+          } else if (!val[0].hasOwnProperty('required')) {
+            this.startCutscene( match[0].events )
+          }
         }
-      } else {
-        this.startCutscene( match[0].events )
       }
-    }
+    })
+
   }
 }
