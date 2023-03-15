@@ -3,7 +3,7 @@
 export const Enemies = {
     "DouxVoleur": {
         name: "DouxVoleur",
-        src: "/img/personnages/personnes/erio.png",
+        src: "/img/personnages/personnes/npc7.png",
         fighters: {
             "a": {
                 fighterId: "s002",

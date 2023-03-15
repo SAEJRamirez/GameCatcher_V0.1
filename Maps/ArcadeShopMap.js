@@ -67,7 +67,7 @@ export const ArcadeShopMap = {
             type: "Person",
             x: utils.withGrid(5),
             y: utils.withGrid(7),
-            src: "/img/personnages/personnes/erio.png",
+            src: "/img/personnages/personnes/npc7.png",
             direction: "right",
             talking: [
                 {
