@@ -89,6 +89,7 @@ export const ArcadeShopMap = {
         [utils.asGridCoord(8, 9)]: [
             {
                 required: ["LITTLE_RED_PLAYED"],
+                isPlayed: false,
                 events: [
                     { type: "textMessage", text: "Hey connard !", who: "DouxVoleur"},
                     {type: "walk", direction: "right", who: "npcBadGuy"},
@@ -114,6 +115,7 @@ export const ArcadeShopMap = {
         ],
         [utils.asGridCoord(10, 13)]: [
             {
+                required: ["ARCADE_BOSS_CHAT2"],
                 events: [
                     {
                         type: "changeMap",

@@ -111,9 +111,12 @@ export class OverworldMap {
     Object.entries(this.cutsceneSpaces).forEach(([key, val]) => {
       if (!this.isCutscenePlaying && match) {
         if (match === val) {
-          if (val[0].hasOwnProperty('required') && val[0].required in playerState.storyFlags) {
+          if (val[0].hasOwnProperty('required') && val[0].required in playerState.storyFlags && val[0].hasOwnProperty('isPlayed') && !val[0].isPlayed) {
             this.startCutscene( match[0].events )
+            val[0].isPlayed = true
             val[0].required = []
+          } else if (val[0].hasOwnProperty('required') && val[0].required in playerState.storyFlags) {
+            this.startCutscene( match[0].events )
           } else if (!val[0].hasOwnProperty('required')) {
             this.startCutscene( match[0].events )
           }
