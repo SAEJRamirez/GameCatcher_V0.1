@@ -39,6 +39,13 @@ export const ArcadeShopMap = {
                     ]
                 },
                 {
+                    required: ["LITTLE_RED_PLAYED"],
+                    events: [
+                        { type: "textMessage", text: "Le mec là-bas te regarde bizarrement...", who: "Patron"},
+
+                    ]
+                },
+                {
                     required: ["ARCADE_BOSS_CHAT1"],
                     events: [
                         { type: "textMessage", text: "Attendez ! Vous avez un jeu !? Génial ! Mettez le dans la borne d'arcade, vite !", who: "Patron"},
@@ -67,6 +74,13 @@ export const ArcadeShopMap = {
                     required: ["DEFEATED_DOUXVOLEUR"],
                     events: [
                         { type: "textMessage", text: "Notre organisation est surpuissante ! On se vengera ! Jamais on vous rendra les jeux !", who: "DouxVoleur"},
+                    ]
+                },
+                {
+                    required: ["LITTLE_RED_PLAYED"],
+                    events: [
+                        { type: "textMessage", text: "Mmmh intéressant...", who: "Inconnu"},
+                        { type: "textMessage", text: "Casses-toi, je réfléchis !", who: "Inconnu"},
                     ]
                 },
                 {
