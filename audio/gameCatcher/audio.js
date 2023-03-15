@@ -17,7 +17,7 @@ export let audioGameCatcher = {
     }),
     heroHouse: new Howl({
         src: "../audio/src/heroHouse.mp3",
-        volume: 0.1,
+        volume: 0.02,
         loop: true
     }),
     map: new Howl({
