@@ -6,6 +6,7 @@ import {PauseMenu} from "./PauseMenu.js";
 import {OverworldMaps} from "../Maps/Maps.js";
 import {Enemies} from "../Content/enemies.js";
 import {utils} from "../utils.js";
+import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
 
 export class OverworldEvent {
   constructor({ map, event}) {
@@ -70,6 +71,11 @@ export class OverworldEvent {
   }
 
   changeMap(resolve) {
+
+    //Stop music
+    for (let audioGameCatcherKey in audioGameCatcher) {
+      audioGameCatcher[audioGameCatcherKey].stop()
+    }
 
     //Deactivate old objects
     Object.values(this.map.gameObjects).forEach(obj => {

@@ -16,6 +16,7 @@ import {killChoompy} from "./tools/killEnemies.js";
 import {actualFps} from "../../initMain.js";
 import {utils} from "../../utils.js";
 import {audioPlatformer} from "../../audio/platformer/audio.js";
+import {audioGameCatcher} from "../../audio/gameCatcher/audio.js";
 
 
 //Canvas setup
@@ -145,6 +146,7 @@ function animate() {
         initialGameCatcherMap.isPaused = false
         initialGameCatcherMap.overworld.startGameLoop();
         audioPlatformer.mapMusic.stop()
+        audioGameCatcher.introStreamer.play()
     } else if(player.position.x >= 1300 && scoreBoard.score <= 10) {
         player.isDead = true
         player.switchSprite("Idle")

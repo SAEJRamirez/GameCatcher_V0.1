@@ -1,7 +1,9 @@
 import {utils} from "../utils.js"
+import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
 
 export const HeroHouseMap = {
     id: "HeroHouseMap",
+    music: audioGameCatcher.heroHouse,
     lowerSrc: "/img/cartes/HeroHouseMap.png",
     upperSrc: "/img/cartes/HeroHouseUpper.png",
     configObjects: {

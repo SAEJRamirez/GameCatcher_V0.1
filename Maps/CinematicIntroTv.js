@@ -1,9 +1,11 @@
 import {utils} from "../utils.js"
+import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
 
 export const CinematicIntroTv = {
     id: "CinematicIntroTv",
     lowerSrc: "/img/cartes/HeroHouseMap.png",
     upperSrc: "/img/cartes/HeroHouseUpper.png",
+    music: audioGameCatcher.intro1,
     configObjects: {
         hero: {
             type: "Person",

@@ -1,3 +1,6 @@
+import {KeyboardMenu} from "./KeyboardMenu.js";
+import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
+
 export class TitleScreen {
     constructor({progress}) {
         this.progress = progress;
@@ -7,16 +10,16 @@ export class TitleScreen {
         const safeFile = this.progress.getSaveFile();
         return [
             {
-                label: "New Game",
-                description: "Start a new adventure!",
+                label: "Nouvelle partie",
+                description: "Démarrer une nouvelle aventure !",
                 handler: () => {
                     this.close();
                     resolve();
                 }
             },
             safeFile ? {
-                label: "Continue Game",
-                description: "Resume your adventure",
+                label: "Continuer",
+                description: "Reprendre votre aventure en cours",
                 handler: () => {
                     this.close();
                     resolve(safeFile);
@@ -30,13 +33,15 @@ export class TitleScreen {
         this.element = document.createElement("div");
         this.element.classList.add("TitleScreen");
         this.element.innerHTML = (`
-            <img class="TitleScreen_logo" src="" alt="Game Catcher" />
+            <img class="TitleScreen_logo" src="/img/ui/logoGameCatcher.png" alt="logo Game Catcher" />
+            <img class="TitleScreen_img" src="/img/enemies/choompy/uniqueLeft.png" alt="choompy" />
         `)
     }
 
     close() {
         this.keyboardMenu.end();
         this.element.remove();
+        audioGameCatcher.titleScreen.stop()
     }
 
     init(container) {
@@ -46,6 +51,7 @@ export class TitleScreen {
             this.keyboardMenu = new KeyboardMenu();
             this.keyboardMenu.init(this.element);
             this.keyboardMenu.setOptions(this.getOptions(resolve))
+            audioGameCatcher.titleScreen.play()
         })
     }
 }

@@ -1,7 +1,9 @@
 import {utils} from '../utils.js'
+import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
 
 export const ArcadeShopMap = {
     id: "ArcadeShopMap",
+    music: audioGameCatcher.titleScreen,
     lowerSrc: "/img/cartes/ArcadeShopMap.png",
     upperSrc: "/img/cartes/ArcadeShopMapUpper.png",
     configObjects: {
@@ -118,7 +120,8 @@ export const ArcadeShopMap = {
                     { type: "battle", enemyId: "DouxVoleur"},
                     { type: "addStoryFlag", flag: "DEFEATED_DOUXVOLEUR" },
                     { type: "textMessage", text: "Tu crois que tu vas t'en tirer comme ça ? Hahahaha !", who: "DouxVoleur"},
-                    { type: "textMessage", text: "Notre organisation est surpuissante ! On se vengera ! Jamais on vous rendra les jeux !", who: "DouxVoleur"},                        { type: "walk", direction: "up", who: "npcBadGuy"},
+                    { type: "textMessage", text: "Notre organisation est surpuissante ! On se vengera ! Jamais on vous rendra les jeux !", who: "DouxVoleur"},
+                    { type: "walk", direction: "up", who: "npcBadGuy"},
                     { type: "walk", direction: "left", who: "npcBadGuy"},
                     { type: "walk", direction: "left", who: "npcBadGuy"},
                     { type: "walk", direction: "left", who: "npcBadGuy"},
@@ -137,7 +140,7 @@ export const ArcadeShopMap = {
                         map: "TownMap",
                         x: utils.withGrid(35),
                         y: utils.withGrid(6),
-                        direction: "down"
+                        direction: "down",
                     }
 
                 ]

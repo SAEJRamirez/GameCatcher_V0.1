@@ -21,6 +21,7 @@ export class OverworldMap {
 
     this.isCutscenePlaying = false;
     this.isPaused = false;
+    this.music = config.music || null
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -68,6 +69,9 @@ export class OverworldMap {
       this.gameObjects[key] = instance;
       this.gameObjects[key].id = key;
       instance.mount(this);
+      if (this.music !== null) {
+        this.music.play()
+      }
     })
   }
 

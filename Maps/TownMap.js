@@ -1,7 +1,9 @@
 import {utils} from '../utils.js'
+import {audioGameCatcher} from "../audio/gameCatcher/audio.js";
 
 export const TownMap = {
     id: "TownMap",
+    music: audioGameCatcher.map,
     lowerSrc: "/img/cartes/TownMap.png",
     upperSrc: "/img/cartes/TownNoBridgeMapUpper.png",
     configObjects: {

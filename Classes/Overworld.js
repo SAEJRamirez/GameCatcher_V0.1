@@ -6,7 +6,6 @@ import {Cinematic} from "./Cinematic.js";
 import {KeyPressListener} from "./KeyPressListener.js";
 import {DirectionInput} from "./DirectionInput.js";
 import {OverworldMaps} from "../Maps/Maps.js";
-import {audioGameCatcher} from '../audio/gameCatcher/audio.js'
 
 export class Overworld {
  constructor(config) {
@@ -45,7 +44,7 @@ export class Overworld {
 
       //Draw Upper layer
       this.map.drawUpperImage(this.ctx, cameraPerson);
-      
+
       if (!this.map.isPaused) {
         requestAnimationFrame(() => {
           step();
@@ -82,7 +81,7 @@ export class Overworld {
   this.map = new OverworldMap(mapConfig);
   this.map.overworld = this;
   this.map.mountObjects();
-  audioGameCatcher.mapMusic.play()
+
 
   if (heroInitialState) {
     const {hero} = this.map.gameObjects;
@@ -111,8 +110,7 @@ export class Overworld {
   this.titleScreen = new TitleScreen({
     progress: this.progress
   })
-  //const useSaveFile = await this.titleScreen.initPlatformer(container); REMETTRE POUR ECRAN TITRE
-    const useSaveFile = false;
+  const useSaveFile = await this.titleScreen.init(container);
 
   //Potentially load saved data
   let initialHeroState = null;

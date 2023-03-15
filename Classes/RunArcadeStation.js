@@ -19,7 +19,7 @@ export class RunArcadeStation {
 
     runPlatformer(id) {
         this.map.isPaused = true;
-        audioGameCatcher.mapMusic.stop()
+        audioGameCatcher.titleScreen.stop()
         runGame(id, this.map)
     }
 }
