@@ -92,6 +92,7 @@ export const ArcadeShopMap = {
         },
         arcadeStation: {
             type: "ArcadeStation",
+            src: "/img/personnages/arcade_station.png",
             x: utils.withGrid(8),
             y: utils.withGrid(6),
             fighters: ["s001"],
@@ -133,7 +134,7 @@ export const ArcadeShopMap = {
                 events: [
                     {
                         type: "changeMap",
-                        map: "TownNoBridgeMap",
+                        map: "TownMap",
                         x: utils.withGrid(35),
                         y: utils.withGrid(6),
                         direction: "down"

@@ -6,11 +6,12 @@ export class ArcadeStation extends GameObject {
         super(config);
         this.sprite = new Sprite({
             gameObject: this,
-            src: "",
+            src: "/img/personnages/arcade_station.png",
             animations: {
                 "unused-down": [ [1,0] ],
                 "used-down": [[1,0]]
             },
+            useShadow: false,
             currentAnimation: "used-down"
         });
         this.storyFlag = config.storyFlag;

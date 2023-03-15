@@ -20,7 +20,12 @@ class PlayerState {
             { actionId: "item_recoverHp", instanceId: "item2" },
             { actionId: "item_recoverHp", instanceId: "item3" },
         ]
-        this.storyFlags = {}
+        this.storyFlags = {
+            ARCADE_BOSS_CHAT2: {
+                flag: "ARCADE_BOSS_CHAT2",
+                complete: true
+            }
+        }
 
     }
 
