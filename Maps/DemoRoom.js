@@ -37,12 +37,6 @@ export const DemoRoom = {
                 }
             ],
         },
-        craftingStone: {
-            type: "CraftingStone",
-            x: utils.withGrid(9),
-            y: utils.withGrid(8),
-            fighters: ["s001"]
-        }
 
     },
     cutsceneSpaces: {

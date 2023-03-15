@@ -12,7 +12,6 @@ export const ArcadeShopMap = {
             x: utils.withGrid(10),
             y: utils.withGrid(12),
             direction: "up",
-            useShadow: false
         },
         npcManager: {
             type: "Person",
@@ -22,6 +21,12 @@ export const ArcadeShopMap = {
             direction: "down",
             talking: [
                 {
+                    required: ["ARCADE_BOSS_CHAT2"],
+                    events: [
+                        { type: "textMessage", text: "Je compte sur toi... mon chiffre d'affaire dépend du retour des jeux.", who: "Patron"},
+                    ]
+                },
+                {
                     required: ["DEFEATED_DOUXVOLEUR"],
                     events: [
                         { type: "textMessage", text: "Ce mec fait partie d'une organisation chelou...", who: "Patron"},
@@ -30,6 +35,7 @@ export const ArcadeShopMap = {
                         { type: "textMessage", text: "J'ai entendu dire qu'un des responsable de cette organisation avait prit ses quartiers à l'université...", who: "Patron"},
                         { type: "textMessage", text: "Peut-être que tu pourrais déloger ce connard ?", who: "Patron"},
                         { type: "textMessage", text: "Je compte sur toi... mon chiffre d'affaire dépend du retour des jeux.", who: "Patron"},
+                        { type: "addStoryFlag", flag: "ARCADE_BOSS_CHAT2"}
                     ]
                 },
                 {
@@ -112,8 +118,8 @@ export const ArcadeShopMap = {
                     {
                         type: "changeMap",
                         map: "TownNoBridgeMap",
-                        x: utils.withGrid(18),
-                        y: utils.withGrid(20),
+                        x: utils.withGrid(35),
+                        y: utils.withGrid(6),
                         direction: "down"
                     }
 
