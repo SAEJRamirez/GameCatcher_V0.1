@@ -28,7 +28,6 @@ export class TitleScreen {
         ].filter( v=> v);
     }
 
-    //TODO Faire le logo et le mettre en src
     createElement() {
         this.element = document.createElement("div");
         this.element.classList.add("TitleScreen");
@@ -52,6 +51,7 @@ export class TitleScreen {
             this.keyboardMenu.init(this.element);
             this.keyboardMenu.setOptions(this.getOptions(resolve))
             audioGameCatcher.titleScreen.play()
+            audioGameCatcher.titleScreen.volume(0.5)
         })
     }
 }

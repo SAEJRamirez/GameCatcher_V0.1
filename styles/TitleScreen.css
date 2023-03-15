@@ -15,6 +15,13 @@
     transform: scale(1.6);
 }
 
+.TitleScreen_platformer {
+    display: block;
+    margin: 0px 110px;
+    width: 192px;
+    transform: scale(0.8);
+}
+
 .TitleScreen_img {
     position: absolute;
     transform: scale(0.2);

@@ -71,6 +71,7 @@ export class OverworldMap {
       instance.mount(this);
       if (this.music !== null) {
         this.music.play()
+        this.music.volume(0.1)
       }
     })
   }

@@ -12,7 +12,7 @@ export const TownMap = {
             src: "/img/personnages/personnes/me.png",
             isPlayerControlled: true,
             x: utils.withGrid(32),
-            y: utils.withGrid(33),
+            y: utils.withGrid(32),
             direction: "down",
             useShadow: true
         },
@@ -38,15 +38,31 @@ export const TownMap = {
                 {
                     required: ["FIRST_AGENT_CHAT_3"],
                     events: [
-                        { type: "textMessage", text: "Je suis si heureuse ! J'ai envie de vous faire un câlin et de chanter la vie !", who: "Agent Kool"},                    ]
+                        {
+                            type: "textMessage",
+                            text: "Je suis si heureuse ! J'ai envie de vous faire un câlin et de chanter la vie !",
+                            who: "Agent Kool"
+                        },]
                 },
                 {
                     required: ["ARCADE_BOSS_CHAT2"],
                     events: [
-                        { type: "textMessage", text: "Le pont est enfin ouvert Monsieur ! C'est trop génial non ?", who: "Agent Kool"},
-                        { type: "textMessage", text: "Le monde s'ouvre à vous ! Un univers infini de découverte !!!", who: "Agent Kool"},
-                        { type: "textMessage", text: "Je suis si heureuse ! J'ai envie de vous faire un câlin et de chanter la vie !", who: "Agent Kool"},
-                        { type: "addStoryFlag", flag: "FIRST_AGENT_CHAT_3"},
+                        {
+                            type: "textMessage",
+                            text: "Le pont est enfin ouvert Monsieur ! C'est trop génial non ?",
+                            who: "Agent Kool"
+                        },
+                        {
+                            type: "textMessage",
+                            text: "Le monde s'ouvre à vous ! Un univers infini de découverte !!!",
+                            who: "Agent Kool"
+                        },
+                        {
+                            type: "textMessage",
+                            text: "Je suis si heureuse ! J'ai envie de vous faire un câlin et de chanter la vie !",
+                            who: "Agent Kool"
+                        },
+                        {type: "addStoryFlag", flag: "FIRST_AGENT_CHAT_3"},
                     ]
                 },
             ]
@@ -61,24 +77,44 @@ export const TownMap = {
                 {
                     required: ["SECOND_AGENT_CHAT_2"],
                     events: [
-                        { type: "textMessage", text: "Allez part le hippie là, va découvrir ton monde et fou moi la paix.", who: "Agent Kill"},
+                        {
+                            type: "textMessage",
+                            text: "Allez part le hippie là, va découvrir ton monde et fou moi la paix.",
+                            who: "Agent Kill"
+                        },
                     ]
                 },
                 {
                     required: ["ARCADE_BOSS_CHAT2"],
                     events: [
-                        { type: "textMessage", text: "C'est ouvert t'es content ? Abrutit, dégage !", who: "Agent Kill"},
-                        { type: "addStoryFlag", flag: "SECOND_AGENT_CHAT_2"},
+                        {type: "textMessage", text: "C'est ouvert t'es content ? Abrutit, dégage !", who: "Agent Kill"},
+                        {type: "addStoryFlag", flag: "SECOND_AGENT_CHAT_2"},
                     ]
                 },
             ]
         },
-
-
+        zStreamerMystere: {
+            type: "Person",
+            x: utils.withGrid(34),
+            y: utils.withGrid(14),
+            src: "/img/personnages/personnes/npc3.png",
+            direction: "up",
+            useShadow: true,
+            talking: [
+                {
+                    required: ["END_DEMO"],
+                    events: [
+                        { type: "textMessage", text: "Cette rivière est comme la vie Pseudo...", who:"Ztreamer mystère" },
+                        { type: "textMessage", text: "On se fait chier si on la contemple... Mais, si on s'y jette...", who:"Ztreamer mystère" },
+                        { type: "textMessage", text: "... ça fait plouf.", who:"Ztreamer mystère" },
+                    ]
+                }
+            ]
+        },
     },
 
     cutsceneSpaces: {
-        [utils.asGridCoord(32,31)] : [
+        [utils.asGridCoord(32, 31)]: [
             {
                 events: [
                     {
@@ -91,7 +127,7 @@ export const TownMap = {
                 ],
             }
         ],
-        [utils.asGridCoord(35,4)]: [
+        [utils.asGridCoord(35, 4)]: [
             {
                 events: [
                     {
@@ -101,6 +137,72 @@ export const TownMap = {
                         y: utils.withGrid(12),
                         direction: "up"
                     },
+                ]
+            }
+        ],
+        [utils.asGridCoord(35, 6)]: [
+            {
+                required: ["ARCADE_BOSS_CHAT2"],
+                isPlayed: false,
+                events: [
+                    {type: "textMessage", text: "Hey ! Pseudo !", who: "Ztreamer mystère"},
+                    {type: "walk", direction: "up", who: "zStreamerMystere"},
+                    {type: "walk", direction: "up", who: "zStreamerMystere"},
+                    {type: "walk", direction: "up", who: "zStreamerMystere"},
+                    {type: "walk", direction: "up", who: "zStreamerMystere"},
+                    {type: "walk", direction: "up", who: "zStreamerMystere"},
+                    {type: "walk", direction: "down", who: "hero"},
+                    {type: "walk", direction: "down", who: "hero"},
+                    {type: "walk", direction: "left", who: "hero"},
+                    {type: "stand", direction: "down", who: "hero"},
+                    {
+                        type: "textMessage",
+                        text: "Alors tu as réussis à débloquer ton premier personnage ?",
+                        who: "Ztreamer mystère"
+                    },
+                    {
+                        type: "textMessage",
+                        text: "Mais c'est trop bien !!! Tu es vraiment l'élu Pseudo, j'ai eu raison de te faire confiance...",
+                        who: "Ztreamer mystère"
+                    },
+                    {type: "walk", direction: "left", who: "zStreamerMystere"},
+                    {type: "walk", direction: "left", who: "zStreamerMystere"},
+                    {type: "walk", direction: "left", who: "zStreamerMystere"},
+                    {type: "walk", direction: "left", who: "zStreamerMystere"},
+                    {type: "walk", direction: "left", who: "zStreamerMystere"},
+                    {type: "walk", direction: "left", who: "zStreamerMystere"},
+                    {type: "walk", direction: "left", who: "hero"},
+                    {type: "walk", direction: "left", who: "hero"},
+                    {type: "walk", direction: "left", who: "hero"},
+                    {type: "walk", direction: "left", who: "hero"},
+                    {type: "walk", direction: "left", who: "hero"},
+                    {type: "walk", direction: "left", who: "hero"},
+                    {
+                        type: "textMessage",
+                        text: "Le problème Pseudo, c'est que le développeur n'a pas écris la suite de cette aventure...",
+                        who: "Ztreamer mystère"
+                    },
+                    {
+                        type: "textMessage",
+                        text: "Nous ne sommes que des lignes inachevées d'un projet ambitieux...",
+                        who: "Ztreamer mystère"
+                    },
+                    {
+                        type: "textMessage",
+                        text: "Un jour peut-être, nous découvrirons la suite de ce mystère des jeux disparus...",
+                        who: "Ztreamer mystère"
+                    },
+                    {
+                        type: "textMessage",
+                        text: "En attendant, si tu le souhaites, tu peux te balader dans les endroits que tu as déjà visités...",
+                        who: "Ztreamer mystère"
+                    },
+                    {
+                        type: "textMessage",
+                        text: "On se reverra Pseudo... et d'ici là, je vais rester ici et contempler cette rivière...",
+                        who: "Ztreamer mystère"
+                    },
+                    {type: "addStoryFlag", flag: "END_DEMO"},
                 ]
             }
         ]

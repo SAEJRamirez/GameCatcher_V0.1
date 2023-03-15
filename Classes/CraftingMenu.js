@@ -19,8 +19,9 @@ export class CraftingMenu {
                 label: base.name,
                 description: base.description,
                 handler: () => {
-                    this.arcadeStation = new RunArcadeStation(this.fighters, this.map)
-                    this.arcadeStation.menuRunNewGame(id);
+                    this.arcadeStation = new RunArcadeStation(this.fighters, this.map, id)
+                    const container = document.querySelector(".game-container");
+                    this.arcadeStation.init(container)
                     this.close();
                 }
             }
@@ -31,7 +32,7 @@ export class CraftingMenu {
         this.element = document.createElement("div");
         this.element.classList.add("overlayMenu");
         this.element.innerHTML = (`
-            <h2>Unlock a Fighter</h2>
+            <h2>Débloquer un personnage</h2>
         `)
     }
 

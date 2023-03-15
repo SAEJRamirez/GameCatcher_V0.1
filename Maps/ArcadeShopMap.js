@@ -139,7 +139,7 @@ export const ArcadeShopMap = {
                         type: "changeMap",
                         map: "TownMap",
                         x: utils.withGrid(35),
-                        y: utils.withGrid(6),
+                        y: utils.withGrid(5),
                         direction: "down",
                     }
 
