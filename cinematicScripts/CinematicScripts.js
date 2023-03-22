@@ -1,5 +1,9 @@
+//Imports methods and variables
 import {utils} from "../utils.js";
 
+//Scripts used for cinematic in game
+//id = Map concerned
+//script = events to trigger
 export let cinematicScripts = [
    {
         id: "CinematicIntroTv",
