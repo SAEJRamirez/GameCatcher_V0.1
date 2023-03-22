@@ -146,9 +146,9 @@ function animate() {
     }
 
     //Check for win 12550
-    if (player.position.x >= 12550 && scoreBoard.score >= 0) {
+    if (player.position.x >= 12550 && scoreBoard.score >= 301) {
         gameWin()
-    } else if(player.position.x >= 12550 && scoreBoard.score <= 100) {
+    } else if(player.position.x >= 12550 && scoreBoard.score <= 300) {
        gameOver()
     }
 }
