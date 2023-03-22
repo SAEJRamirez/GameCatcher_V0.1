@@ -33,6 +33,7 @@ let reqAnimationFrame;
 let menuModal = document.querySelector('.menu-end-game')
 let menuModalTitle = document.getElementById('end-game-title')
 let menuModalText = document.getElementById('end-game-text')
+let soundPlayed = false
 
 
 export function runGame(id, map) {
@@ -140,26 +141,16 @@ function animate() {
 
     //Check for death
     if (player.position.y > canvas.height) {
+        audioPlatformer.playerDeath.play()
         initPlatformer();
     }
 
     //Check for win 12550
-    if (player.position.x >= 12550 && scoreBoard.score >= 120) {
-        window.cancelAnimationFrame(reqAnimationFrame)
-        utils.endingGame(canvas, figtherPlatformerId)
-        playerState.addFighter(figtherPlatformerId)
-        initialGameCatcherMap.isPaused = false
-        initialGameCatcherMap.overworld.startGameLoop();
-        audioPlatformer.mapMusic.stop()
-        audioGameCatcher.introStreamer.play()
+    if (player.position.x >= 12550 && scoreBoard.score >= 0) {
+        gameWin()
     } else if(player.position.x >= 12550 && scoreBoard.score <= 100) {
-        player.isDead = true
-        player.switchSprite("Idle")
-        menuModal.style.display = 'flex'
-        menuModalTitle.textContent = 'Vous êtes si nul !'
-        menuModalText.textContent = "Les pièces dispersées dans le niveau ne sont pas là pour faire joli... Les ennemis non plus d'ailleurs ! Le score semble être un bon indice de ce qu'il faut faire non ?"
+       gameOver()
     }
-
 }
 
 
@@ -186,13 +177,13 @@ export function playerDeath(key, index = 0, enemy = "") {
             player.switchSprite("DieRight")
             setTimeout(() => {
                 player.animationEnd = true
-            }, 800)
+            }, 1200)
 
         } else {
             player.switchSprite("Die")
             setTimeout(() => {
                 player.animationEnd = true
-            }, 800)
+            }, 1200)
         }
         if (player.animationEnd) {
             player.animationEnd = false
@@ -211,8 +202,61 @@ export function playerDeath(key, index = 0, enemy = "") {
     }
 }
 
-document.getElementById('end-game-restart').addEventListener('click', () => {
-    player.isDead = false
-    initPlatformer()
-    menuModal.style.display = "none"
-})
+function gameOver() {
+    if (!soundPlayed) {
+        audioPlatformer.loose.play()
+    }
+    soundPlayed = true
+    player.isDead = true
+    player.switchSprite("Idle")
+    createModal("loose")
+
+}
+
+function gameWin() {
+    if (!soundPlayed) {
+        audioPlatformer.victory.play()
+    }
+    soundPlayed = true
+    player.isDead = true
+    player.switchSprite("Idle")
+    createModal("win")
+}
+
+function createModal(state) {
+    if (state === "loose") {
+        menuModal.style.display = 'flex'
+        menuModalTitle.textContent = 'Vous êtes si nul !'
+        menuModalText.textContent = "Les pièces dispersées dans le niveau ne sont pas là pour faire joli... Les ennemis non plus d'ailleurs ! Le score semble être un bon indice de ce qu'il faut faire non ?"
+        let btn = document.getElementById('end-game-restart')
+        btn.onclick = () => {
+            player.isDead = false
+            initPlatformer()
+            menuModal.style.display = "none"
+            soundPlayed = false
+        }
+    }
+
+    if (state === "win") {
+        menuModal.style.display = 'flex'
+        menuModalTitle.textContent = 'Vous êtes puissant !'
+        menuModalText.textContent = "Félicitations ! Vous avez vaincus les vils champignons et autres créatures volantes. Vous avez même ramené le fric ! On aime les aventuriers comme vous ici."
+        let btn = document.getElementById('end-game-restart')
+        btn.textContent = "Quitter"
+        btn.onclick = () => {
+            player.isDead = true
+            menuModal.style.display = "none"
+            window.cancelAnimationFrame(reqAnimationFrame)
+            utils.endingGame(canvas, figtherPlatformerId)
+            playerState.addFighter(figtherPlatformerId)
+            initialGameCatcherMap.isPaused = false
+            initialGameCatcherMap.overworld.startGameLoop();
+            audioPlatformer.mapMusic.stop()
+            audioGameCatcher.introStreamer.play()
+            soundPlayed = false
+        }
+    }
+
+}
+
+

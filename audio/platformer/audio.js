@@ -24,4 +24,20 @@ export let audioPlatformer = {
         volume: 0.8,
         loop: false
     }),
+    playerDeath: new Howl({
+        src: "../audio/src/playerDie.mp3",
+        volume: 0.8,
+        loop: false
+    }),
+    victory: new Howl({
+        src: "../audio/src/platformerVictory.mp3",
+        volume: 0.8,
+        loop: false
+    }),
+    loose: new Howl({
+        src: "../audio/src/platformerLoose.mp3",
+        volume: 0.8,
+        loop: false,
+    }),
+
 }

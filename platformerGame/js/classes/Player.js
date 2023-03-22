@@ -257,13 +257,13 @@ export class Player extends Sprite {
 
             if (objectDownCollision({object1: this.hitBox, object2: spikeDownCollisionBlock})) {
                 if (this.velocity.y > 0) {
+                    audioPlatformer.playerDeath.play()
                     this.velocity.y = 0;
                     const offset = this.hitBox.position.y - this.position.y + this.hitBox.height
-                    this.position.y = (spikeDownCollisionBlock.position.y + spikeDownCollisionBlock.adjustPosition) - offset - 0.01;
+                    this.position.y = spikeDownCollisionBlock.position.y + offset - 0.01;
                     this.isDead = true
                     playerDeath("spikeDown")
-                    this.animationEnd = false
-                    break
+                    break;
                 }
             }
         }
@@ -271,8 +271,8 @@ export class Player extends Sprite {
         //Spike UP collision blocksUp
         for (let i = 0; i < this.spikeUpCollisionBlocks.length; i++) {
             const spikeUpCollisionBlock = this.spikeUpCollisionBlocks[i];
-
             if (collision({object1: this.hitBox, object2: spikeUpCollisionBlock})) {
+                audioPlatformer.playerDeath.play()
                 if (this.velocity.y > 0) {
                     this.velocity.y = 0;
                     this.isDead = true
@@ -305,6 +305,7 @@ export class Player extends Sprite {
                     }
                 }
             } else if (collisionSidesEnemy({object1: this.hitBox, object2: enemy})) {
+                audioPlatformer.playerDeath.play()
                 this.isDead = true
                 playerDeath("enemy", i, enemy)
                 break;
