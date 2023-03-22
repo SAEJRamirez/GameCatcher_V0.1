@@ -43,6 +43,7 @@ export function runGame(id, map) {
     figtherPlatformerId = id;
     initialGameCatcherMap = map;
     audioPlatformer.mapMusic.play()
+    audioPlatformer.mapMusic.volume(0.1)
     initPlatformer();
     animate();
 }
@@ -143,7 +144,7 @@ function animate() {
     }
 
     //Check for win 12550
-    if (player.position.x >= 500 && scoreBoard.score >= 120) {
+    if (player.position.x >= 12550 && scoreBoard.score >= 120) {
         window.cancelAnimationFrame(reqAnimationFrame)
         utils.endingGame(canvas, figtherPlatformerId)
         playerState.addFighter(figtherPlatformerId)
@@ -151,7 +152,7 @@ function animate() {
         initialGameCatcherMap.overworld.startGameLoop();
         audioPlatformer.mapMusic.stop()
         audioGameCatcher.introStreamer.play()
-    } else if(player.position.x >= 600 && scoreBoard.score <= 100) {
+    } else if(player.position.x >= 12550 && scoreBoard.score <= 100) {
         player.isDead = true
         player.switchSprite("Idle")
         menuModal.style.display = 'flex'
@@ -172,6 +173,7 @@ export function playerDeath(key, index = 0, enemy = "") {
         }
         setTimeout(() => {
             killChoompy(enemy, index)
+
         }, 0)
 
         setTimeout(() => {

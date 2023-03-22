@@ -11,6 +11,7 @@ import {ScoreBoard} from "./classes/ScoreBoard.js";
 import {actualFps} from "../../initMain.js";
 import {keys} from "./platformerMain.js";
 import {spawnCoins} from "./spawns/spawnCoins.js";
+import {audioPlatformer} from "../../audio/platformer/audio.js";
 
 
 export let player;
@@ -163,9 +164,11 @@ export function initPlatformer() {
                 if (!player.isJumping && player.velocity.y === 0 && !player.isDead) {
                     player.isJumping = true
                     if (actualFps <= 55) {
+                        audioPlatformer.jump.play()
                         player.velocity.y = -10;
 
                     } else {
+                        audioPlatformer.jump.play()
                         player.velocity.y = -18.5;
 
                     }

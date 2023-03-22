@@ -6,7 +6,6 @@ import {EnemyChoompy} from "../classes/EnemyChoompy.js";
 
 export function killChoompy(choompy, index) {
     enemies.splice(index, 1)
-
     deathSprites.push(new Sprite({
         position: {
             x: choompy.position.x,

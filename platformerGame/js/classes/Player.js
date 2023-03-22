@@ -11,6 +11,7 @@ import {Sprite} from "./Sprite.js";
 import {killChoompy, killChoompyMax, killVampBat} from "../tools/killEnemies.js";
 import {scoreBoard} from "../initPlatformer.js";
 import {coins} from "../initPlatformer.js";
+import {audioPlatformer} from "../../../audio/platformer/audio.js";
 
 //Player class
 export class Player extends Sprite {
@@ -291,12 +292,15 @@ export class Player extends Sprite {
                     this.position.y = enemy.position.y - offset - 0.01;
 
                     if (enemy.type === "ChoompyMax") {
+                        audioPlatformer.maxSplash.play()
                         killChoompyMax(enemy, i)
                         break;
                     } else if (enemy.type === "Choompy") {
+                        audioPlatformer.miniSplash.play()
                         killChoompy(enemy, i)
                         break;
                     } else if (enemy.type === "VampBat") {
+                        audioPlatformer.miniSplash.play()
                         killVampBat(enemy, i)
                     }
                 }
@@ -311,6 +315,7 @@ export class Player extends Sprite {
         for (let i = 0; i < coins.length; i ++) {
             const coin = coins[i];
             if (collisionSidesEnemy({object1: this.hitBox, object2: coin})) {
+                audioPlatformer.grabCoin.play()
                 coins.splice(i, 1);
                 scoreBoard.score +=10
             }

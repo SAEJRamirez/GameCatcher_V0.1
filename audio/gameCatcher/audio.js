@@ -24,6 +24,6 @@ export let audioGameCatcher = {
         src: "../audio/src/map.mp3",
         volume: 0.1,
         loop: true
-    })
+    }),
 
 }
