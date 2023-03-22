@@ -64,33 +64,49 @@ body {
 
 .menu-end-game {
     position: absolute;
-    width: 400px;
-    height: 200px;
-    top: 25%;
-    left: 40%;
-    z-index: 10;
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    z-index: 90;
     display: none;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 5px;
-    background-color: rgba(164, 132, 101, 0.86);
+    background-color: rgb(252, 252, 252);
+    border: 2px solid #301742;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
 }
 
 .menu-end-game h2 {
-    width: 100%;
+    width: 80%;
+    font-size: 32px;
+    border-bottom: 1px solid #582a79;
+    border-top: 1px solid #582a79;
 }
 
 .menu-end-game p {
-    width: 100%;
-
+    width: 80%;
+    text-align: justify;
+    line-height: 25px;
+    font-size: 18px;
 }
 
 .menu-end-game button {
-    width: 30%;
+    all: unset;
+    background-color: #582a79;
+    color: white;
+    border-radius: 5px;
+    width: 150px;
     height: 30px;
-    border: none;
     cursor: pointer;
     margin-bottom: 15px;
+    padding: 5px;
+    transition: transform .1s;
+}
+
+.menu-end-game button:hover {
+    transform: scale(1.1);
 }

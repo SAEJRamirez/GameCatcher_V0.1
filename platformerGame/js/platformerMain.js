@@ -31,6 +31,8 @@ export let figtherPlatformerId = "";
 let initialGameCatcherMap = null;
 let reqAnimationFrame;
 let menuModal = document.querySelector('.menu-end-game')
+let menuModalTitle = document.getElementById('end-game-title')
+let menuModalText = document.getElementById('end-game-text')
 
 
 export function runGame(id, map) {
@@ -141,7 +143,7 @@ function animate() {
     }
 
     //Check for win 12550
-    if (player.position.x >= 12550 && scoreBoard.score >= 20) {
+    if (player.position.x >= 500 && scoreBoard.score >= 120) {
         window.cancelAnimationFrame(reqAnimationFrame)
         utils.endingGame(canvas, figtherPlatformerId)
         playerState.addFighter(figtherPlatformerId)
@@ -149,10 +151,12 @@ function animate() {
         initialGameCatcherMap.overworld.startGameLoop();
         audioPlatformer.mapMusic.stop()
         audioGameCatcher.introStreamer.play()
-    } else if(player.position.x >= 12550 && scoreBoard.score <= 10) {
+    } else if(player.position.x >= 600 && scoreBoard.score <= 100) {
         player.isDead = true
         player.switchSprite("Idle")
         menuModal.style.display = 'flex'
+        menuModalTitle.textContent = 'Vous êtes si nul !'
+        menuModalText.textContent = "Les pièces dispersées dans le niveau ne sont pas là pour faire joli... Les ennemis non plus d'ailleurs ! Le score semble être un bon indice de ce qu'il faut faire non ?"
     }
 
 }
