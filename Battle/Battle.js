@@ -1,3 +1,4 @@
+//Imports methods and variables
 import {Combatant} from "./Combatant.js";
 import {Team} from "./Team.js";
 import {TurnCycle} from "./TurnCycle.js";
@@ -5,6 +6,7 @@ import {BattleEvent} from "./BattleEvent.js";
 import {utils} from "../utils.js";
 import {Fighters} from "../Content/fighters.js";
 
+//Class Battle
 export class Battle {
     constructor({ enemy, onComplete }) {
         this.enemy = enemy;
@@ -15,18 +17,17 @@ export class Battle {
             enemy: null,
         }
 
-        //Ajouter dynamiquement l'équipe du Joueur
+        //Add fighters in team player dynamically
         window.playerState.lineup.forEach(id => {
             this.addCombatant(id, "player", window.playerState.fighters[id])
         });
-        //Ajouter dynamiquement l'équipe ennemie
+        //Add fighters in team enemy dynamically
         Object.keys(this.enemy.fighters).forEach(key => {
             this.addCombatant("e_"+key, "enemy", this.enemy.fighters[key])
         });
 
-        //Objets
+        //Items and method for adding items
         this.items = [];
-        //Ajout d'objets au Joueur
         window.playerState.items.forEach(item => {
             this.items.push({
                 ...item,
@@ -36,6 +37,7 @@ export class Battle {
         this.usedInstanceIds = {};
     }
 
+    //Method for adding fighters
     addCombatant(id, team, config) {
         this.combatants[id] = new Combatant({
             ...Fighters[config.fighterId],
@@ -44,10 +46,11 @@ export class Battle {
             isPlayerControlled: team === "player"
         }, this)
 
-        //Premier combattant du joueur
+        //First player fighter's
         this.activeCombatants[team] = this.activeCombatants[team] || id;
     }
 
+    //DOM creation
     createElement() {
         this.element = document.createElement("div");
         this.element.classList.add("Battle");
@@ -61,6 +64,7 @@ export class Battle {
             `)
     }
 
+    //Init Battle with teams and fighters
     init(container) {
         this.createElement();
         container.appendChild(this.element);
@@ -107,12 +111,11 @@ export class Battle {
                         }
                     })
 
-                    //Se débarrasser des objets utilisés par les joueurs
+                    //Kill items used
                     playerState.items = playerState.items.filter(item => {
                         return !this.usedInstanceIds[item.instanceId]
                     })
 
-                    //Envoyer un évènement pour update
                     utils.emitEvent("PlayerStateUpdated");
                 }
                 this.element.remove();

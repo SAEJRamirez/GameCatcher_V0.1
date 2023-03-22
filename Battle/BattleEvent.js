@@ -1,8 +1,10 @@
+//Imports methods and variables
 import {TextMessage} from "../Classes/TextMessage.js";
 import {SubmissionMenu} from "../Classes/SubmissionMenu.js";
 import {utils} from "../utils.js";
 import {BattleAnimations} from "./BattleAnimations.js";
 
+//Class for Battle events
 export class BattleEvent {
     constructor(event, battle) {
         this.event = event;
@@ -24,16 +26,15 @@ export class BattleEvent {
         message.init( this.battle.element )
     }
 
+    //Methods for states change (damage, poison, ...)
     async stateChange(resolve) {
-        const {caster, target, damage, recover, status, action} = this.event;
+        const {caster, target, damage, recover, status} = this.event;
         let who = this.event.onCaster ? caster : target;
 
         if (damage) {
-            //Modifie la cible pour avoir moins de HP
             target.update({
                 hp: target.hp - damage
             })
-            //Commence à clignoter
             target.fighterElement.classList.add("battle-damage-blink");
         }
 
@@ -58,18 +59,14 @@ export class BattleEvent {
             })
         }
 
-        //Attendre un petit peu
         await utils.wait(600)
-
-        //Update le composent Team
         this.battle.playerTeam.update();
         this.battle.enemyTeam.update();
-
-        //Arrête de clignoter
         target.fighterElement.classList.remove("battle-damage-blink");
         resolve();
     }
 
+    //Method for battle Menu
     submissionMenu(resolve) {
         const {caster} = this.event;
         const menu = new SubmissionMenu({
@@ -80,14 +77,13 @@ export class BattleEvent {
                 return c.id !== caster.id && c.team === caster.team && c.hp > 0
             }),
             onComplete: submission => {
-                //submission { what move to use, who to use it on }
-                //Soumet quel mouvement faire, qui l'utilise
                 resolve(submission)
             }
         })
         menu.init( this.battle.element )
     }
 
+    //Method for replace fighter Menu
     replacementMenu(resolve) {
         const menu = new ReplacementMenu({
             replacements: Object.values(this.battle.combatants).filter(c => {
@@ -100,6 +96,7 @@ export class BattleEvent {
         menu.init( this.battle.element )
     }
 
+    //Method to do fighter replacement
     async replace(resolve) {
         const {replacement} = this.event;
 
@@ -121,6 +118,7 @@ export class BattleEvent {
         resolve();
     }
 
+    //Method for xp gain when fight is over
     giveXp(resolve) {
         let amount = this.event.xp;
         const {combatant} = this.event;
@@ -145,11 +143,13 @@ export class BattleEvent {
         requestAnimationFrame(step);
     }
 
+    //Method for battle animation
     animation(resolve) {
         const fn = BattleAnimations[this.event.animation];
         fn(this.event, resolve);
     }
 
+    //Init class
     init(resolve) {
         this[this.event.type](resolve);
     }

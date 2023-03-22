@@ -1,3 +1,6 @@
+
+//Display sound in platform game form this object
+//Use howler librairie
 export let audioPlatformer = {
     mapMusic: new Howl({
         src: "../audio/src/platformerMusic.mp3",

@@ -1,5 +1,7 @@
+//Imports methods and variables
 import {utils} from "../utils.js";
 
+//Class for fighter
 export class Combatant {
     constructor(config, battle) {
         Object.keys(config).forEach(key => {
@@ -9,23 +11,28 @@ export class Combatant {
         this.battle = battle;
     }
 
+    //HP
     get hpPercent() {
         const percent = this.hp / this.maxHp * 100;
         return percent > 0 ? percent : 0;
     }
 
+    //XP
     get xpPercent() {
         return this.xp / this.maxXp * 100;
     }
 
+    //If is the fighter who fight
     get isActive() {
         return this.battle?.activeCombatants[this.team] === this.id;
     }
 
+    //Give XP after fight
     get givesXp() {
         return this.level * 20;
     }
 
+    //DOM creation
     createElement() {
         this.hudElement = document.createElement("div");
         this.hudElement.classList.add("Combatant");
@@ -59,25 +66,25 @@ export class Combatant {
         this.xpFills = this.hudElement.querySelectorAll(".Combatant_xp-container > rect");
     }
 
+    //Update in requestAnimationFrame
     update(changes={}) {
-        //Update tout ce qui vient
+        //Update everything
         Object.keys(changes).forEach(key => {
             this[key] = changes[key]
         });
 
-        //Update les flags pour montrer les bons combatants et le HUD
+        //Update fighter name and infos
         this.hudElement.setAttribute("data-active", this.isActive);
         this.fighterElement.setAttribute("data-active", this.isActive);
 
         //Update HP & XP percent fills
-        //Update les remplissages des champs HP et XP
         this.hpFills.forEach(rect => rect.style.width = `${this.hpPercent}%`)
         this.xpFills.forEach(rect => rect.style.width = `${this.xpPercent}%`)
 
-        //Update le niveau à l'écran
+        //Update level
         this.hudElement.querySelector(".Combatant_level").innerText = this.level;
 
-        //Update les status
+        //Update status
         const statusElement = this.hudElement.querySelector(".Combatant_status");
         if (this.status) {
             statusElement.innerText = this.status.type;
@@ -88,7 +95,7 @@ export class Combatant {
         }
     }
 
-    //TODO voir quels status on a besoin (empoisonné etc...)
+    //Display info from status
     getReplacedEvents(originalEvents) {
         if (this.status?.type === "empoisonné" && utils.randomFromArray([false, true, false])) {
             return [
@@ -99,7 +106,7 @@ export class Combatant {
         return originalEvents;
     }
 
-    //TODO voir quels status on a besoin (empoisonné etc...)
+   //Trigger effect of status (heal, poison, etc...)
     getPostEvents() {
         if (this.status?.type === "soigné") {
             return [
@@ -116,6 +123,7 @@ export class Combatant {
         return [];
     }
 
+    //Effect duration
     decrementStatus() {
         if (this.status?.expiresIn > 0) {
             this.status.expiresIn -= 1;
@@ -132,6 +140,7 @@ export class Combatant {
         return null;
     }
 
+    //Init class
     init(container) {
         this.createElement();
         container.appendChild(this.hudElement);

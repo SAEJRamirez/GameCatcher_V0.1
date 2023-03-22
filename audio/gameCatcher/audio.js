@@ -1,4 +1,6 @@
 
+//Display sound in main game form this object
+//Use howler librairie
 export let audioGameCatcher = {
     titleScreen: new Howl({
         src: "../audio/src/gameCatcherTitle.mp3",

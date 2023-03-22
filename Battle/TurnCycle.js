@@ -1,4 +1,5 @@
 
+//Class for every turn in a fight
 export class TurnCycle {
     constructor({battle, onNewEvent, onWinner}) {
         this.battle = battle;
@@ -7,8 +8,9 @@ export class TurnCycle {
         this.currentTeam = "player"; //ou "enemy"
     }
 
+    //Trigger the turn
     async turn() {
-        //Trouver le "Caster"
+        //Find "Caster"
         const casterId = this.battle.activeCombatants[this.currentTeam];
         const caster = this.battle.combatants[casterId];
         const enemyId = this.battle.activeCombatants[caster.team === "player" ? "enemy" : "player"]
@@ -20,7 +22,7 @@ export class TurnCycle {
             enemy
         })
 
-        //Arrêter ici si on remplace ce combatant
+        //Stop if replacement fighter
         if (submission.replacement) {
             await this.onNewEvent({
                 type: "replace",
@@ -35,10 +37,7 @@ export class TurnCycle {
         }
 
         if (submission.instanceId) {
-            //Ajouter à la liste pour qu'il soit présent dans le PlayerState après
             this.battle.usedInstanceIds[submission.instanceId] = true;
-
-            //Enlever l'objet depuis l'état du combat
             this.battle.items = this.battle.items.filter(i => i.instanceId !== submission.instanceId)
         }
 
@@ -55,7 +54,7 @@ export class TurnCycle {
             await this.onNewEvent(event);
         }
 
-        //La cible est-elle morte ?
+        //Target die ?
         const targetDead = submission.target.hp <= 0;
         if (targetDead) {
             await this.onNewEvent({
@@ -79,7 +78,7 @@ export class TurnCycle {
             }
         }
 
-        //Y a-t-il une équipe gagnante ?
+        //Is there a winner ?
         const winner = this.getWinningTeam();
         if (winner) {
             await this.onNewEvent({
@@ -90,7 +89,7 @@ export class TurnCycle {
             return;
         }
 
-        //Une cible morte, mais toujours pas de gagnant, donc il faut la remplacer
+        //Target die but no winner, replacement
         if (targetDead) {
             const replacement = await this.onNewEvent({
                 type: "replacementMenu",
@@ -106,8 +105,7 @@ export class TurnCycle {
             })
         }
 
-        //Voir s'il y a des post évènements
-        //Faire quelque chose APRES le tour originel
+        //Event after turn
         const postEvents = caster.getPostEvents();
         for (let i=0; i < postEvents.length; i++ ) {
             const event = {
@@ -121,7 +119,6 @@ export class TurnCycle {
         }
 
         //Check for status expire
-        //Voir si des status ont expirés
         const expiredEvent = caster.decrementStatus();
         if (expiredEvent) {
             await this.onNewEvent(expiredEvent)
@@ -130,11 +127,13 @@ export class TurnCycle {
         this.nextTurn();
     }
 
+    //Trigger next turn
     nextTurn() {
         this.currentTeam = this.currentTeam === "player" ? "enemy" : "player";
         this.turn();
     }
 
+    //Check which teams win
     getWinningTeam() {
         let aliveTeams = {};
         Object.values(this.battle.combatants).forEach(c => {
@@ -147,13 +146,14 @@ export class TurnCycle {
         return null;
     }
 
+    //Init class
     async init() {
         await this.onNewEvent({
             type: "textMessage",
             text: `${this.battle.enemy.name} veut vous démonter!`,
         })
 
-        //Démarre le premier tour
+        //start first turn
         this.turn();
 
     }

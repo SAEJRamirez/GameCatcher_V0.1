@@ -1,3 +1,5 @@
+
+//Class for Team in fight
 export class Team {
     constructor(team, name) {
         this.team = team;
@@ -5,6 +7,7 @@ export class Team {
         this.combatants = [];
     }
 
+    //DOM creation
     createElement() {
         this.element = document.createElement("div");
         this.element.classList.add("Team");
@@ -32,6 +35,7 @@ export class Team {
         })
     }
 
+    //Update when a fighter is dead (depend on number of fighters in team)
     update() {
         this.combatants.forEach(c => {
             const icon = this.element.querySelector(`[data-combatant="${c.id}"]`)
@@ -40,6 +44,7 @@ export class Team {
         })
     }
 
+    //Init class
     init(container) {
         this.createElement();
         this.update();
