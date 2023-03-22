@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -28,17 +26,13 @@
     <link href="styles/Battle.css" type="text/css" rel="stylesheet">
     <link href="styles/Combatant.css" type="text/css" rel="stylesheet">
     <link href="styles/Team.css" type="text/css" rel="stylesheet">
-
-
 </head>
-
 <body>
     <div id="message-container">
         <h2 id="message"></h2>
     </div>
     <!--Taille canvas standard : 352 x 198 -->
     <!--Taille canvas grand : 528 x 297 -->
-
     <div class="game-container">
         <canvas class="game-canvas" width="352" height="198"></canvas>
     </div>
@@ -46,15 +40,12 @@
         <div class="menu-end-game">
             <h2 id="end-game-title"></h2>
             <p id="end-game-text"></p>
-            <button id="end-game-restart">Recommencer</button>
+            <button id="end-game-restart"></button>
         </div>
         <canvas class="next-game-canvas" width="1024" height="576"></canvas>
-
     </div>
     <script type="module" src="audio/gameCatcher/audio.js"></script>
     <script type="module" src="State/PlayerState.js"></script>
     <script type="module" src="initMain.js"></script>
-
 </body>
-
 </html>

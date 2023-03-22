@@ -229,6 +229,7 @@ function createModal(state) {
         menuModalTitle.textContent = 'Vous êtes si nul !'
         menuModalText.textContent = "Les pièces dispersées dans le niveau ne sont pas là pour faire joli... Les ennemis non plus d'ailleurs ! Le score semble être un bon indice de ce qu'il faut faire non ?"
         let btn = document.getElementById('end-game-restart')
+        btn.textContent = "Recommencer"
         btn.onclick = () => {
             player.isDead = false
             initPlatformer()
