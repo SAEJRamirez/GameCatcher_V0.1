@@ -8,6 +8,7 @@ import {
     player,
     background,
     backgroundMap,
+    endHouseMap,
     deathSprites,
     scoreBoard,
     coins
@@ -67,12 +68,13 @@ function animate() {
     //Background update
     background.update();
     ctx.restore()
-
     ctx.save()
     ctx.translate(camera.position.x, 0)
+    endHouseMap.update()
     backgroundMap.update();
     //Call functions for set collisionBlocks
     renderCollisionBlocks();
+
     player.checkForHorizontalCanvasCollision();
 
     coins.forEach((coin) => {

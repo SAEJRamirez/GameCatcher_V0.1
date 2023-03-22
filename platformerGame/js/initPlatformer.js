@@ -16,6 +16,7 @@ import {spawnCoins} from "./spawns/spawnCoins.js";
 export let player;
 export let backgroundMap;
 export let background;
+export let endHouseMap;
 export let camera;
 export let cameraBg;
 export let enemies;
@@ -31,12 +32,12 @@ function initPlayer() {
             y: 250
         },
         groundCollisionBlocks,
+        coins,
         platformDownCollisionBlocks,
         platformUpCollisionBlocks,
         spikeDownCollisionBlocks,
         spikeUpCollisionBlocks,
         enemies,
-        coins,
         imageSrc: "../../img/Hero/Idle_right2.png",
         frameRate: 18,
         animationEnd : false,
@@ -115,6 +116,17 @@ function initBackground() {
     scoreBoard = new ScoreBoard(0)
 }
 
+function initEndHouse() {
+    endHouseMap = new Sprite({
+        position: {
+            x: 12500,
+            y: 95
+        },
+        imageSrc: "../../img/ui/endHouse.png",
+        scale: 0.4
+    })
+}
+
 export function initPlatformer() {
 
     if (actualFps >= 56) {
@@ -175,5 +187,7 @@ export function initPlatformer() {
     initPlayer();
     spawnEnemies();
     spawnCoins();
+    initEndHouse();
     initBackground();
+
 }
