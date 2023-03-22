@@ -85,12 +85,12 @@ function initPlayer() {
             Die: {
                 imageSrc: "../../img/Hero/dieLeft.png",
                 frameRate: 21,
-                frameBuffer: 1
+                frameBuffer: 3,
             },
             DieRight: {
                 imageSrc: "../../img/Hero/dieRight.png",
                 frameRate: 21,
-                frameBuffer: 1
+                frameBuffer: 3,
             }
         },
     });
