@@ -92,7 +92,7 @@ function animate() {
     player.velocity.x = 0;
     if (keys.d.pressed && !player.isDead) {
         player.switchSprite("Run");
-        if (actualFps >= 59) {
+        if (actualFps >= 57) {
             player.velocity.x = 8;
         } else if (actualFps <= 65) {
             player.velocity.x = 4;
@@ -102,7 +102,7 @@ function animate() {
         player.shouldPanCameraToTheLeft({canvas, camera, cameraBg})
     } else if (keys.a.pressed && !player.isDead) {
         player.switchSprite("RunLeft")
-        if (actualFps >= 59) {
+        if (actualFps >= 57) {
             player.velocity.x = -8;
         } else if (actualFps <= 65) {
             player.velocity.x = -4;
@@ -139,7 +139,7 @@ function animate() {
     }
 
     //Check for win 12550
-    if (player.position.x >= 1000 && scoreBoard.score >= 20) {
+    if (player.position.x >= 12550 && scoreBoard.score >= 20) {
         window.cancelAnimationFrame(reqAnimationFrame)
         utils.endingGame(canvas, figtherPlatformerId)
         playerState.addFighter(figtherPlatformerId)
@@ -147,7 +147,7 @@ function animate() {
         initialGameCatcherMap.overworld.startGameLoop();
         audioPlatformer.mapMusic.stop()
         audioGameCatcher.introStreamer.play()
-    } else if(player.position.x >= 1300 && scoreBoard.score <= 10) {
+    } else if(player.position.x >= 12550 && scoreBoard.score <= 10) {
         player.isDead = true
         player.switchSprite("Idle")
         menuModal.style.display = 'flex'

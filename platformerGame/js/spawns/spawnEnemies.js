@@ -129,24 +129,13 @@ function spawnChoompys() {
         }),
         new EnemyChoompy({
             position: {
-                x: 10100,
+                x: 10200,
                 y: 340
             },
             distance: {
-                limit: 240,
+                limit: 340,
                 traveled: 0,
                 direction: "Left"
-            }
-        }),
-        new EnemyChoompy({
-            position: {
-                x: 10000,
-                y: 340
-            },
-            distance: {
-                limit: 240,
-                traveled: 0,
-                direction: "Right"
             }
         }),
         new EnemyChoompy({

@@ -30,6 +30,9 @@ function testFps() {
 testFps();
 setTimeout(() => {
     gameContainer.style.display = "block"
+    if (actualFps <= 56) {
+        location.reload()
+    }
     setTest = true
     messageFps.remove()
     startGameCatcher()

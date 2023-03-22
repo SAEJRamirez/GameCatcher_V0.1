@@ -97,11 +97,11 @@ export const CinematicIntroStreamer = {
                     { type: "textMessage", text: "Je te cherchais Pseudo...", who:"Ztreamer mystère" },
                     { type: "textMessage", text: "Tu étais le meilleur gamer d'entre nous à l'époque...", who:"Ztreamer mystère" },
                     { type: "textMessage", text: "Il faut que tu retrouve les jeux... on fait plus de stream Bro. On a perdu l'argent des abonnés !", who:"Ztreamer mystère" },
-                    { type: "textMessage", text: "J'ai trouvé une cartouche de jeu avec le dernier survivant. Il faut que tu la plug dans une console.", who:"Ztreamer mystère" },
+                    { type: "textMessage", text: "J'ai trouvé une cartouche de jeu avec le dernier survivant. Il faut que tu la plug dans une borne d'arcade.", who:"Ztreamer mystère" },
                     { type: "textMessage", text: "Vous avez reçu la cartouche Multigaming", who:"Info" },
                     { type: "textMessage", text: "Joue à ce jeu, débloque le perso et combat les enfoirés qui ont volé nos jeux...", who:"Ztreamer mystère" },
                     { type: "textMessage", text: "... il en va de notre santé mentale et financière à tous. Tu es l'élu Pseudo, ne me déçois pas !", who:"Ztreamer mystère" },
-                    { type: "textMessage", text: "Rend toi au nord de la ville, tu y trouvera une console de jeu. Mais fais gaffe, ces connards sont partout...", who:"Ztreamer mystère" },
+                    { type: "textMessage", text: "Rend toi au nord de la ville, tu y trouvera une salle d'arcade. Mais fais gaffe, ces connards sont partout...", who:"Ztreamer mystère" },
                     { type: "textMessage", text: "On se reverra bientôt Pseudo, fais en sorte que je sois fier de toi. Pour le jeu ! Pour l'argent ! I'll be back !", who:"Ztreamer mystère" },
                 ]
             }

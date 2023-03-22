@@ -1,5 +1,5 @@
 //Imports
-import {ctx, playerDeath, score} from "../platformerMain.js"
+import {ctx, playerDeath} from "../platformerMain.js"
 import {gravity} from "../initPlatformer.js";
 import {
     collision,
@@ -122,7 +122,7 @@ export class Player extends Sprite {
         if (this.camerBox.position.x >= Math.abs(camera.position.x)) {
             camera.position.x -= this.velocity.x
             scoreBoard.position.x += this.velocity.x
-            cameraBg.position.x -= 0.2
+            cameraBg.position.x -= 1
         }
     }
 
@@ -131,7 +131,7 @@ export class Player extends Sprite {
         if (this.camerBox.position.x <= Math.abs(camera.position.x)) {
             camera.position.x -= this.velocity.x
             scoreBoard.position.x += this.velocity.x
-            cameraBg.position.x += 0.2
+            cameraBg.position.x += 0.3
         }
     }
 
