@@ -110,3 +110,30 @@ body {
 .menu-end-game button:hover {
     transform: scale(1.1);
 }
+
+#mobile-container {
+    display: none;
+}
+
+@media not all and (min-width: 900px) {
+
+    #mobile-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        background-color: #1c1c1c;
+        text-align: center;
+        color: white;
+    }
+
+    #mobile-title {
+        margin-top: 3%;
+    }
+
+    #mobile-text {
+        font-size: 18px;
+    }
+}
