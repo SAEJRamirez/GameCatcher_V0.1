@@ -1,7 +1,8 @@
 import {Overworld} from './Classes/Overworld.js'
 
 export let setTest = false;
-let messageFps = document.getElementById('message');
+let loader = document.getElementById('loader-container')
+let loaderText = document.getElementById('loader-text')
 let gameContainer = document.querySelector('.game-container')
 export let actualFps = 0;
 
@@ -15,9 +16,10 @@ function testFps() {
         frames++;
         if (time > prevTime + 1000) {
             let fps = Math.round((frames * 1000))
+            loaderText.textContent = `Testing your fps ${fps / 1000}`
             prevTime = time;
             frames = 0;
-            messageFps.textContent = `Testing your FPS... Please wait... (${fps / 1000})`
+            loader.style.display = "flex"
             actualFps = fps / 1000;
             return actualFps
         }
@@ -34,7 +36,8 @@ setTimeout(() => {
         location.reload()
     }
     setTest = true
-    messageFps.remove()
+    loader.style.display = "none"
+    loaderText.textContent = ""
     startGameCatcher()
 }, 2000)
 
