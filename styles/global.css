@@ -41,7 +41,6 @@ body {
     margin: 0 auto;
     outline: 1px solid #fff;
     transform: scale(2.8) translateY(50%);
-    display: none;
     /*x2 pour les anciennes et 35%*/
 }
 

@@ -14,7 +14,6 @@ import {
     coins
 } from "./initPlatformer.js";
 import {killChoompy} from "./tools/killEnemies.js";
-import {actualFps} from "../../initMain.js";
 import {utils} from "../../utils.js";
 import {audioPlatformer} from "../../audio/platformer/audio.js";
 import {audioGameCatcher} from "../../audio/gameCatcher/audio.js";
@@ -34,6 +33,11 @@ let menuModal = document.querySelector('.menu-end-game')
 let menuModalTitle = document.getElementById('end-game-title')
 let menuModalText = document.getElementById('end-game-text')
 let soundPlayed = false
+let fps = 120
+let now
+let then = Date.now()
+let interval = 1000 / fps
+let delta
 
 
 export function runGame(id, map) {
@@ -60,97 +64,95 @@ export const keys = {
 
 //Game loop
 function animate() {
+
     //Request for loop animation
     reqAnimationFrame = window.requestAnimationFrame(animate);
 
-    //Clear canvas every frames
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    now = Date.now()
+    delta = now - then
+     if (delta > interval) {
+         then = now - (delta % interval)
+         //Clear canvas every frames
+         ctx.fillStyle = "white";
+         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-    ctx.save()
-    ctx.translate(cameraBg.position.x, 0)
-    //Background update
-    background.update();
-    ctx.restore()
-    ctx.save()
-    ctx.translate(camera.position.x, 0)
-    endHouseMap.update()
-    backgroundMap.update();
-    //Call functions for set collisionBlocks
-    renderCollisionBlocks();
+         ctx.save()
+         ctx.translate(cameraBg.position.x, 0)
+         //Background update
+         background.update();
+         ctx.restore()
+         ctx.save()
+         ctx.translate(camera.position.x, 0)
+         endHouseMap.update()
+         backgroundMap.update();
+         //Call functions for set collisionBlocks
+         renderCollisionBlocks();
 
-    player.checkForHorizontalCanvasCollision();
+         player.checkForHorizontalCanvasCollision();
 
-    coins.forEach((coin) => {
-        coin.update()
-    })
-    enemies.forEach((enemy) => {
-        enemy.update()
-    })
+         coins.forEach((coin) => {
+             coin.update()
+         })
+         enemies.forEach((enemy) => {
+             enemy.update()
+         })
 
-    //Update player
-    player.update();
+         //Update player
+         player.update();
 
-    deathSprites.forEach((death) => {
-        death.update()
-    })
-    //Listen keys pressed
-    player.velocity.x = 0;
-    if (keys.d.pressed && !player.isDead) {
-        player.switchSprite("Run");
-        if (actualFps >= 57) {
-            player.velocity.x = 8;
-        } else if (actualFps <= 65) {
-            player.velocity.x = 4;
-        }
+         deathSprites.forEach((death) => {
+             death.update()
+         })
+         //Listen keys pressed
+         player.velocity.x = 0;
+         if (keys.d.pressed && !player.isDead) {
+             player.switchSprite("Run");
+             player.velocity.x = 7;
+             player.lastDirection = "right"
+             player.shouldPanCameraToTheLeft({canvas, camera, cameraBg})
+         } else if (keys.a.pressed && !player.isDead) {
+             player.switchSprite("RunLeft")
+             player.velocity.x = -7;
+             player.lastDirection = "left"
+             player.shouldPanCameraToTheRight({camera, cameraBg})
+         } else if (player.velocity.y === 0 && !player.isDead) {
+             if (player.lastDirection === "right") {
+                 player.switchSprite("Idle")
+             } else {
+                 player.switchSprite("IdleLeft")
+             }
+         }
 
-        player.lastDirection = "right"
-        player.shouldPanCameraToTheLeft({canvas, camera, cameraBg})
-    } else if (keys.a.pressed && !player.isDead) {
-        player.switchSprite("RunLeft")
-        if (actualFps >= 57) {
-            player.velocity.x = -8;
-        } else if (actualFps <= 65) {
-            player.velocity.x = -4;
-        }
+         if (player.velocity.y < 0) {
+             if (player.lastDirection === "right") {
+                 player.switchSprite("Jump")
+             } else {
+                 player.switchSprite("JumpLeft")
+             }
+         } else if (player.velocity.y > 0) {
+             if (player.lastDirection === "right")
+                 player.switchSprite("Fall")
+             else {
+                 player.switchSprite("FallLeft")
+             }
+         }
+         ctx.restore();
 
-        player.lastDirection = "left"
-        player.shouldPanCameraToTheRight({camera, cameraBg})
-    } else if (player.velocity.y === 0 && !player.isDead) {
-        if (player.lastDirection === "right") {
-            player.switchSprite("Idle")
-        } else {
-            player.switchSprite("IdleLeft")
-        }
-    }
+         //Check for death
+         if (player.position.y > canvas.height) {
+             audioPlatformer.playerDeath.play()
+             initPlatformer();
+         }
 
-    if (player.velocity.y < 0) {
-        if (player.lastDirection === "right") {
-            player.switchSprite("Jump")
-        } else {
-            player.switchSprite("JumpLeft")
-        }
-    } else if (player.velocity.y > 0) {
-        if (player.lastDirection === "right")
-            player.switchSprite("Fall")
-        else {
-            player.switchSprite("FallLeft")
-        }
-    }
-    ctx.restore();
+         //Check for win 12550
+         if (player.position.x >= 12550 && scoreBoard.score >= 301) {
+             gameWin()
+         } else if(player.position.x >= 12550 && scoreBoard.score <= 300) {
+             gameOver()
+         }
+     }
 
-    //Check for death
-    if (player.position.y > canvas.height) {
-        audioPlatformer.playerDeath.play()
-        initPlatformer();
-    }
 
-    //Check for win 12550
-    if (player.position.x >= 12550 && scoreBoard.score >= 301) {
-        gameWin()
-    } else if(player.position.x >= 12550 && scoreBoard.score <= 300) {
-       gameOver()
-    }
 }
 
 

@@ -7,6 +7,12 @@ import {KeyPressListener} from "./KeyPressListener.js";
 import {DirectionInput} from "./DirectionInput.js";
 import {OverworldMaps} from "../Maps/Maps.js";
 
+export let fps = 60
+export let now
+export let then = Date.now()
+export let interval = 1000/fps
+export let delta
+
 export class Overworld {
  constructor(config) {
    this.element = config.element;
@@ -47,7 +53,13 @@ export class Overworld {
 
       if (!this.map.isPaused) {
         requestAnimationFrame(() => {
-          step();
+
+            now = Date.now()
+            delta = now - then
+            if(delta > interval) {
+                then = now - (delta % interval)
+            }
+            step();
         })
       }
     }
@@ -140,12 +152,6 @@ export class Overworld {
   //Kick off the game!
   this.startGameLoop();
 
-
-  // this.map.startCutscene([
-  //   { type: "battle", enemyId: "beth" }
-  //   // { type: "changeMap", map: "DemoRoom"}
-  //   // { type: "textMessage", text: "This is the very first message!"}
-  // ])
 
  }
 }

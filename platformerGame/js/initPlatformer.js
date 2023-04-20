@@ -8,7 +8,6 @@ import {
 import {Sprite} from "./classes/Sprite.js";
 import {spawnEnemies} from "./spawns/spawnEnemies.js";
 import {ScoreBoard} from "./classes/ScoreBoard.js";
-import {actualFps} from "../../initMain.js";
 import {keys} from "./platformerMain.js";
 import {spawnCoins} from "./spawns/spawnCoins.js";
 import {audioPlatformer} from "../../audio/platformer/audio.js";
@@ -129,13 +128,7 @@ function initEndHouse() {
 }
 
 export function initPlatformer() {
-
-    if (actualFps >= 56) {
-        gravity = 1
-    } else if (actualFps <= 55) {
-        gravity = 0.3
-    }
-
+    gravity = 0.8
     enemies = [];
     coins = [];
     deathSprites = [];
@@ -163,15 +156,8 @@ export function initPlatformer() {
             case "w":
                 if (!player.isJumping && player.velocity.y === 0 && !player.isDead) {
                     player.isJumping = true
-                    if (actualFps <= 55) {
-                        audioPlatformer.jump.play()
-                        player.velocity.y = -10;
-
-                    } else {
-                        audioPlatformer.jump.play()
-                        player.velocity.y = -18.5;
-
-                    }
+                    audioPlatformer.jump.play()
+                    player.velocity.y = -16.5;
                 }
                 break;
         }
