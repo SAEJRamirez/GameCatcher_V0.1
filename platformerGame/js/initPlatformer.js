@@ -128,7 +128,7 @@ function initEndHouse() {
 }
 
 export function initPlatformer() {
-    gravity = 0.8
+    gravity = 0.7
     enemies = [];
     coins = [];
     deathSprites = [];
@@ -146,6 +146,7 @@ export function initPlatformer() {
     };
 
     window.addEventListener('keydown', (e) => {
+        console.log(e.key)
         switch (e.key) {
             case "d":
                 keys.d.pressed = true
@@ -154,6 +155,13 @@ export function initPlatformer() {
                 keys.a.pressed = true
                 break;
             case "w":
+                if (!player.isJumping && player.velocity.y === 0 && !player.isDead) {
+                    player.isJumping = true
+                    audioPlatformer.jump.play()
+                    player.velocity.y = -16.5;
+                }
+                break
+            case " ":
                 if (!player.isJumping && player.velocity.y === 0 && !player.isDead) {
                     player.isJumping = true
                     audioPlatformer.jump.play()
